@@ -13,7 +13,7 @@ public class Main {
     public static Personnel loginPer;                       //Personnel login instance object container
     
     public static People loginPeo;                          //Personnel login instance object container
-    
+     
     public static void main(String[] args) {
         DataIO.readPersonnel();
         
