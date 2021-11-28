@@ -7,12 +7,7 @@ package assignmentoodj;
 public class Main {
     
     public static StartMenu startMenu = new StartMenu();    //Call the Start Menu When program is launched
-    
-    public static VacInventoryManagementPage vacMaintain = new VacInventoryManagementPage();
-    
-    public static CreateVacInventoryPage vacAdd = new CreateVacInventoryPage();
-    
-    
+      
     // Object containers
     public static Personnel loginPer;                       //Personnel login instance object container
     

@@ -206,8 +206,8 @@ public class PersonnelMainPage extends JFrame{
 
     private void manageVaccineButActionPerformed(java.awt.event.ActionEvent evt) {                                            
         this.setVisible(false);
-        // VacInventoryManagementPage vacMaintain = new VacInventoryManagementPage();
-        //vacMaintain.queryFrame.setVisible(true);
+        VacInventoryManagementPage vacMaintain = new VacInventoryManagementPage();
+        vacMaintain.queryFrame.setVisible(true);
         
         
         
