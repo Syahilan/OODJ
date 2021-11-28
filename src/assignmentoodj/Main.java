@@ -23,5 +23,7 @@ public class Main {
         
         DataIO.readPeople();
         
+        VaccineInventoryIO.read(); 
+        
     }
 }
