@@ -38,20 +38,20 @@ public class PersonnelMainPage extends JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        PersonnelMainMenuPage = new javax.swing.JRadioButtonMenuItem();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        LogOutBut = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        manageVaccBut = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        manageUserBut = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        manageScheduleBut = new javax.swing.JButton();
-        manageAppointBut = new javax.swing.JButton();
-        reportBut = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        PersonnelMainMenuPage = new JRadioButtonMenuItem();
+        jLabel1 = new JLabel();
+        jLabel3 = new JLabel();
+        LogOutBut = new JButton();
+        jLabel4 = new JLabel();
+        manageVaccBut = new JButton();
+        jLabel5 = new JLabel();
+        manageUserBut = new JButton();
+        jLabel6 = new JLabel();
+        manageScheduleBut = new JButton();
+        manageAppointBut = new JButton();
+        reportBut = new JButton();
+        jLabel7 = new JLabel();
+        jLabel8 = new JLabel();
 
         PersonnelMainMenuPage.setForeground(new java.awt.Color(255, 0, 0));
         PersonnelMainMenuPage.setSelected(true);
@@ -216,6 +216,8 @@ public class PersonnelMainPage extends JFrame{
     private void manageUserButActionPerformed(java.awt.event.ActionEvent evt) {                                            
         this.setVisible(false);
         // LINK TO The User Accounts Page HERE!
+        PersonnelUserManagementPage pmpA = new PersonnelUserManagementPage();
+        pmpA.setVisible(true);
         
     }                                           
 
