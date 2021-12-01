@@ -132,9 +132,9 @@ public class DataIO {
     
     
     //Personnel Checking
-    public static Personnel checkPersonnel(String x1) {
+    public static Personnel checkPersonnel(String a1) {
         for (int i = 0; i < allPersonnel.size(); i++) {
-            if (x1.equals(allPersonnel.get(i).getName())) {
+            if (a1.equals(allPersonnel.get(i).getName())) {
                 return allPersonnel.get(i);
             }
         }
@@ -143,9 +143,9 @@ public class DataIO {
     
     
     //People Checking
-    public static People checkPeople(String x2) {
+    public static People checkPeople(String x1, String x2, String x3, String x4) {
         for (int i = 0; i < allPeople.size(); i++) {
-            if (x2.equals(allPeople.get(i).getUsername())) {
+            if ( x1.equals(allPeople.get(i).getUsername()) || x2.equals(allPeople.get(i).getPhone()) || x3.equals(allPeople.get(i).getEmail()) || x4.equals(allPeople.get(i).getIdentityTxt())) {
                 return allPeople.get(i);
             }
         }

@@ -218,8 +218,9 @@ public class PeopleLoginPage extends JFrame {
         //INPUTS
         String uname;
         String pword =new String(PasswordTxt.getPassword());
+        String n2="" , n3 = "", n4 = "";
         uname = UsernameTxt.getText();
-        People found = DataIO.checkPeople(uname);
+        People found = DataIO.checkPeople(uname, n2, n3, n4);
         
         //Verifications
         if (found != null) {
