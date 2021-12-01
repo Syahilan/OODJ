@@ -11,6 +11,8 @@ import javax.swing.JRadioButtonMenuItem;
 
 public class PersonnelMainPage extends JFrame{    
     
+    
+    
     // Variables declaration - do not modify                     
     private JButton manageVaccBut;
     private JRadioButtonMenuItem PersonnelMainMenuPage;
@@ -197,7 +199,10 @@ public class PersonnelMainPage extends JFrame{
     }// </editor-fold> 
                                      
 
+    
+    
     private void LogOutButActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        //Main.loginPer.ThisUser(Main.loginPer.getName(), Main.loginPer.getPassword());
         Main.loginPer = null;
         this.setVisible(false);
         StartMenu sm = new StartMenu();

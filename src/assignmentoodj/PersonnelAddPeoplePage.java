@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 public class PersonnelAddPeoplePage extends JFrame{
     
     // Variables declaration - In order same as the form
-    
+    private int systemNumber;
     private JTextField usernameTxt;     // Username
     private JTextField passwordTxt;
     private JTextField FNameTxt;
@@ -94,6 +94,10 @@ public class PersonnelAddPeoplePage extends JFrame{
         jLabel16 = new JLabel();
         identityTxt = new JTextField();
 
+        //Fixed Null issue
+        GenderTxt = "Male";
+        CitizenTxt = "Citizen";
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Covid Vaccine Management System (CVMS)");
         setName("PersonnelAddPeoplePage");
@@ -162,7 +166,7 @@ public class PersonnelAddPeoplePage extends JFrame{
         RegisterBut.setText("REGISTER");
         RegisterBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //RegisterButActionPerformed(evt);
+                RegisterButActionPerformed(evt);
             }
         });
 
@@ -351,22 +355,35 @@ public class PersonnelAddPeoplePage extends JFrame{
         }
     }                                               
 
-//    private void RegisterButActionPerformed(java.awt.event.ActionEvent evt) {                                            
-//        File file = new File("Coach.txt");
-//        String id = IdTxt.getText().trim();
-//        String name = NameTxt.getText().trim();
-//        String lname = FNameTxt.getText().trim();
-//        String date = LNametxt.getText().trim();
-//        String rate = RateTxt.getText().trim();
-//        String phone = PhoneTxt.getText().trim();
-//        String address = AddressTxt.getText().trim();
-//        String center = SCenterComboBox.getSelectedItem().toString();
-//        String centerid = CenterTxt.getText().trim();
-//        String sname = SNameComboBox.getSelectedItem().toString();
-//        String scode = SCodeTxt.getText().trim();
+    private void RegisterButActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        //File file = new File("People.txt");
+        int sys1 = 40001+DataIO.allPeople.size();
+        String x1 = usernameTxt.getText().trim();
+        String x2 = passwordTxt.getText().trim();
+        String x3 = FNameTxt.getText().trim();
+        String x4 = LNametxt.getText().trim();
+        int x5 = Integer.parseInt(AgeTxt.getText().trim());
+        String x6 = GenderTxt;
+        String x7 = PhoneTxt.getText().trim();
+        String x8 = EmailTxt.getText().trim();
+        String x9 = AddLineTxt1.getText().trim();
+        String x10 = AddLineTxt2.getText().trim();
+        String x11 = CitizenTxt;
+        String x12 = identityTxt.getText().trim();
+        People z = new People(sys1, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12);
+        DataIO.allPeople.add(z);
+        DataIO.writePeople();
+        
+        // After a successful addition.
+        JOptionPane.showMessageDialog(null, "You are done the registration of new user successfully");
+        this.setVisible(false);
+        PersonnelUserManagementPage pumpA = new PersonnelUserManagementPage();
+        pumpA.setVisible(true);
+        dispose();
+        
 //        if (id.length()>0 && name.length()>0 && lname.length()>0 && date.length()>0 && phone.length()>0 && address.trim().length()>0 && center.length()>0 && centerid.length()>0 && sname.length()>0 && scode.length()>0){           
 //            try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("Coach.txt",true)))){
-//                writer.println("CID"+id+"\t"+name+"\t"+lname+"\t"+date+"\t"+rate+"\t"+phone+"\t"+address+"\t"+center+"\t"+centerid+"\t"+sname+"\t"+scode);
+//                
 //                JOptionPane.showMessageDialog(null, "You are done the registration of new coach successfully");
 //                this.setVisible(false);
 //                PersonnelUserManagementPage pumpA = new PersonnelUserManagementPage();
@@ -380,8 +397,8 @@ public class PersonnelAddPeoplePage extends JFrame{
 //        else{
 //            JOptionPane.showMessageDialog(this, "ERROR, Please fill unfilled textfields", "Error Message", JOptionPane.ERROR_MESSAGE);
 //        }
-//        
-//    }
+        
+    }
     
     private void GenderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {                                              
         String selected = GenderComboBox.getSelectedItem().toString();

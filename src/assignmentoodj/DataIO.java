@@ -53,11 +53,21 @@ public class DataIO {
         try {
             Scanner s2 = new Scanner(new File("People.txt"));
             while (s2.hasNext()) {
+                int sysID = Integer.parseInt(s2.nextLine());
                 String u1 = s2.nextLine();
                 String u2 = s2.nextLine();
-                //int b = Integer.parseInt(s.nextLine());
+                String u3 = s2.nextLine();
+                String u4 = s2.nextLine();
+                int u5 = Integer.parseInt(s2.nextLine());
+                String u6 = s2.nextLine();
+                String u7 = s2.nextLine();
+                String u8 = s2.nextLine();
+                String u9 = s2.nextLine();
+                String u10 = s2.nextLine();
+                String u11 = s2.nextLine();
+                String u12 = s2.nextLine();
                 s2.nextLine();
-                People d = new People(u1, u2);
+                People d = new People(sysID, u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12);
                 allPeople.add(d);
             }
         } catch (FileNotFoundException e) {
@@ -97,8 +107,19 @@ public class DataIO {
     try {
             PrintWriter peopleWriter = new PrintWriter("People.txt");
             for (int i = 0; i < allPeople.size(); i++) {
-                peopleWriter.println(allPeople.get(i).getName());
+                peopleWriter.println(allPeople.get(i).getSystemNo());
+                peopleWriter.println(allPeople.get(i).getUsername());
                 peopleWriter.println(allPeople.get(i).getPassword());
+                peopleWriter.println(allPeople.get(i).getFirstname());
+                peopleWriter.println(allPeople.get(i).getLastname());
+                peopleWriter.println(allPeople.get(i).getAge());
+                peopleWriter.println(allPeople.get(i).getGender());
+                peopleWriter.println(allPeople.get(i).getPhone());
+                peopleWriter.println(allPeople.get(i).getEmail());
+                peopleWriter.println(allPeople.get(i).getAddressln1());
+                peopleWriter.println(allPeople.get(i).getAddressln2());
+                peopleWriter.println(allPeople.get(i).getCitizenStat());
+                peopleWriter.println(allPeople.get(i).getIdentityTxt());
                 peopleWriter.println();
             }
             peopleWriter.close();
@@ -124,7 +145,7 @@ public class DataIO {
     //People Checking
     public static People checkPeople(String x2) {
         for (int i = 0; i < allPeople.size(); i++) {
-            if (x2.equals(allPeople.get(i).getName())) {
+            if (x2.equals(allPeople.get(i).getUsername())) {
                 return allPeople.get(i);
             }
         }

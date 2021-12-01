@@ -4,10 +4,12 @@
  */
 package assignmentoodj;
 
+//Personnel Class is a subclass of User
+
 //IMPORT LIST;
 import java.util.ArrayList;
 
-public class Personnel {
+public class Personnel extends User{
     
     // Private Personnel Attributes
     private String name;
