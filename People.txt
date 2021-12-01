@@ -1,0 +1,28 @@
+40001
+people
+123
+Adam
+Smith
+300
+Male
+082548236
+smith@oldmail.com
+34, Westminister Avenue,
+401982 Park Road.
+Citizen
+018371-17-1672
+
+40002
+poople
+123
+Boutros
+Boutros-Ghali
+100
+Male
+101827163
+Boutros@gmail.com
+42, haha
+lol
+Non-Citizen
+A9281673561
+

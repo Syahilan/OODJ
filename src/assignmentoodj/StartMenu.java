@@ -32,9 +32,16 @@ public class StartMenu extends JFrame implements ActionListener {
             setVisible(false);
             PeopleLoginPage peopleLogin = new PeopleLoginPage();
             peopleLogin.setVisible(true);
+
+        } else if (e.getSource() == RegAccount) {
             
-        } else if (e.getSource() == Exit){
-        
+            //Go to New User Registration Page
+            setVisible(false);
+            StartMenuRegistrationPage peopleSelfRegis = new StartMenuRegistrationPage();
+            peopleSelfRegis.setVisible(true);
+            
+        } else if (e.getSource() == Exit) {
+
             // Exit the program.
             System.exit(0);
         }
@@ -42,7 +49,7 @@ public class StartMenu extends JFrame implements ActionListener {
         
     }
 
-    private Button Personnel, People, Exit;
+    private Button Personnel, People, Exit, RegAccount;
     
     public StartMenu() {
     
@@ -67,12 +74,16 @@ public class StartMenu extends JFrame implements ActionListener {
         People.setFont(new java.awt.Font("Sans Serif", 1, 20)); // NOI18N
         Exit = new Button("Exit");
         Exit.setFont(new java.awt.Font("Sans Serif", 1, 20)); // NOI18N
+        RegAccount = new Button("Register as a New User");
+        RegAccount.setFont(new java.awt.Font("Sans Serif", 1, 20)); // NOI18N
         Personnel.addActionListener(this);
         People.addActionListener(this);
         Exit.addActionListener(this);
+        RegAccount.addActionListener(this);
         add(Personnel);
         add(People);
         add(Exit);
+        add(RegAccount);
         setVisible(true);
         
     

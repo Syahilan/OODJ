@@ -12,7 +12,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class PersonnelAddPeoplePage extends JFrame {
+public class StartMenuRegistrationPage extends JFrame{
+    
 
     // Variables declaration - In order same as the form
     private JTextField usernameTxt;     // Username
@@ -51,7 +52,7 @@ public class PersonnelAddPeoplePage extends JFrame {
     private JLabel jLabel16;
     // End of variables declaration
 
-    public PersonnelAddPeoplePage() {
+    public StartMenuRegistrationPage() {
         initComponents();
     }
 
@@ -95,7 +96,7 @@ public class PersonnelAddPeoplePage extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Covid Vaccine Management System (CVMS)");
-        setName("PersonnelAddPeoplePage");
+        setName("StartMenuRegistrationPage");
 
         BackBut.setBackground(new java.awt.Color(255, 0, 0));
         BackBut.setFont(new java.awt.Font("Sans Serif", 3, 12)); // NOI18N
@@ -108,7 +109,7 @@ public class PersonnelAddPeoplePage extends JFrame {
 
         jLabel1.setFont(new java.awt.Font("Sans Serif", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel1.setText("People Registration");
+        jLabel1.setText("New User Registration");
 
         jLabel3.setFont(new java.awt.Font("Sans Serif", 1, 20)); // NOI18N
         jLabel3.setText("Please enter the details below:");
@@ -375,10 +376,10 @@ public class PersonnelAddPeoplePage extends JFrame {
                     DataIO.allPeople.add(z);
                     DataIO.writePeople();
                     // After a successful addition.
-                    JOptionPane.showMessageDialog(null, "You have done the registration of new user successfully");
+                    JOptionPane.showMessageDialog(null, "You have registratered as a New User successfully");
                     this.setVisible(false);
-                    PersonnelUserManagementPage pumpA = new PersonnelUserManagementPage();
-                    pumpA.setVisible(true);
+                    StartMenu smA = new StartMenu();
+                    smA.setVisible(true);
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "ERROR, That's NOT A VALID AGE!", "Error Message", JOptionPane.ERROR_MESSAGE);
@@ -404,8 +405,8 @@ public class PersonnelAddPeoplePage extends JFrame {
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
-        PersonnelUserManagementPage pump = new PersonnelUserManagementPage();
-        pump.setVisible(true);
+        StartMenu sm = new StartMenu();
+        sm.setVisible(true);
     }
 
 }
