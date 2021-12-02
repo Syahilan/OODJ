@@ -59,11 +59,38 @@ public class VacInventoryManagementPage extends JFrame implements
                         "Please Select row to be Updated !");
             }
 
-        } else if (e.getSource() == btnUpdAdd) {
-            updateVaccineSupply(Integer.parseInt(q.getText()));
+        } else if (e.getSource() == btnUpdAdd) {  //in update record frame
+            try {
+                if (q.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(btnUpdAdd, "Data Missing");
+                } else if (Integer.parseInt(q.getText()) < 0) {
+                    JOptionPane.showMessageDialog(btnUpdAdd,
+                            "Quantity cannot be negative !");
+                } else if (Integer.parseInt(q.getText()) >= 0) {
+                    updateVaccineSupply(Integer.parseInt(q.getText()));
+                }
 
-        } else if (e.getSource() == btnUpdRem) {
-            updateVaccineSupply(-Integer.parseInt(q.getText()));
+            } catch (Exception ex) {
+                if (!q.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(btnUpdAdd, "Wrong input!");
+                }
+            }
+
+        } else if (e.getSource() == btnUpdRem) {  //in update record frame
+            try {
+                if (q.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(btnUpdRem, "Data Missing");
+                } else if (Integer.parseInt(q.getText()) < 0) {
+                    JOptionPane.showMessageDialog(btnUpdRem,
+                            "Quantity cannot be negative !");
+                } else if (Integer.parseInt(q.getText()) >= 0) {
+                    updateVaccineSupply(-Integer.parseInt(q.getText()));
+                }
+            } catch (Exception ex) {
+                if (!q.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(btnUpdRem, "Wrong input!");
+                }
+            }
 
         } else if (e.getSource() == btnSave) {
 
@@ -176,11 +203,10 @@ public class VacInventoryManagementPage extends JFrame implements
             JOptionPane.showMessageDialog(queryFrame, "Icon image file"
                     + iconFile + " not found !");
         }
-        
-        /**
-         * 
-         */
 
+        /**
+         *
+         */
         // Create icon button
         iconButton = new JButton(srchIcon);
         iconButton.setToolTipText("Search");
@@ -255,8 +281,8 @@ public class VacInventoryManagementPage extends JFrame implements
             if (cent == "" && supplies.get(i).getVacName().equals(vac)
                     || supplies.get(i).getCentre().equals(cent) && vac == ""
                     || supplies.get(i).getVacName().equals(vac)
-                    && supplies.get(i).getCentre().equals(cent) || 
-                    cent == "" && vac == "") {
+                    && supplies.get(i).getCentre().equals(cent)
+                    || cent == "" && vac == "") {
 
                 data[0] = supplies.get(i).getId();
                 data[1] = supplies.get(i).getCentre();
@@ -320,7 +346,7 @@ public class VacInventoryManagementPage extends JFrame implements
 
         q = new JTextField();
         q.setBounds(fPosX, fPosY + 60, 90, 20);
-        q.setColumns(10);
+//        q.setColumns(10);
 
         btnUpdAdd = new JButton("Add");
         btnUpdRem = new JButton("Remove");
@@ -346,8 +372,8 @@ public class VacInventoryManagementPage extends JFrame implements
     private void updateVaccineSupply(int quantity) {
         // i = the index of the selected row
         int i = Integer.parseInt(updData[NB_COL]);
-        if (i >= 0) {
-            // Retrieve original booking from buffered records
+        if (i >= 0 && quantity > 0) {
+            // Retrieve original supply from buffered records
             VaccineSupply supply = VaccineInventoryIO.allVacSupplies
                     .get((int) rowIndexes.get(i));
             int newSup = supply.getQuantity() + quantity;
@@ -358,7 +384,7 @@ public class VacInventoryManagementPage extends JFrame implements
                         + supply.getQuantity() + "]!");
             } else if (newSup >= 0) {
                 model.setValueAt(newSup, i, 3);
-                // Update booking
+                // Update quantiy
                 supply.setQuantity(newSup);
                 // Update array of buffered file records
                 VaccineInventoryIO.allVacSupplies.set((int) rowIndexes.get(i),
