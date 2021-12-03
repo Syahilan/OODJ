@@ -12,8 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class StartMenuRegistrationPage extends JFrame{
-    
+public class StartMenuRegistrationPage extends JFrame {
 
     // Variables declaration - In order same as the form
     private JTextField usernameTxt;     // Username
@@ -332,8 +331,10 @@ public class StartMenuRegistrationPage extends JFrame{
         AddLineTxt1.setText("");
         AddLineTxt2.setText("");
         identityTxt.setText("");
-        CitizenTxt = "";
-        GenderTxt = "";
+        GenderComboBox.setSelectedIndex(0);
+        CitizenshipStatComboBox.setSelectedIndex(0);
+        GenderTxt = "Male";
+        CitizenTxt = "Citizen";
     }
 
     private void CitizenStatComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,31 +367,36 @@ public class StartMenuRegistrationPage extends JFrame{
 
         People userExisted = DataIO.checkPeople(x1, x7, x8, x12);
 
-        if (userExisted != null) {
-            JOptionPane.showMessageDialog(this, "ERROR, That user already exists!", "Error Message", JOptionPane.ERROR_MESSAGE);
-        } else {
-            if (x1.length() > 0 && x2.length() > 0 && x3.length() > 0 && x4.length() > 0 && x5.length() > 0 && x6.trim().length() > 0 && x7.length() > 0 && x8.length() > 0 && x9.length() > 0 && x10.length() > 0 && x11.length() > 0 && x12.length() > 0) {
-                int x5age = Integer.parseInt(AgeTxt.getText().trim());
-                if (x5age >= 18) {
-                    People z = new People(sys1, x1, x2, x3, x4, x5age, x6, x7, x8, x9, x10, x11, x12);
-                    DataIO.allPeople.add(z);
-                    DataIO.writePeople();
-                    // After a successful addition.
-                    JOptionPane.showMessageDialog(null, "You have registratered as a New User successfully");
-                    this.setVisible(false);
-                    StartMenu smA = new StartMenu();
-                    smA.setVisible(true);
-                    dispose();
+        try {
+
+            if (userExisted != null) {
+                JOptionPane.showMessageDialog(this, "ERROR, That user already exists!", "Error Message", JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (x1.length() > 0 && x2.length() > 0 && x3.length() > 0 && x4.length() > 0 && x5.length() > 0 && x6.trim().length() > 0 && x7.length() > 0 && x8.length() > 0 && x9.length() > 0 && x10.length() > 0 && x11.length() > 0 && x12.length() > 0) {
+                    int x5age = Integer.parseInt(AgeTxt.getText().trim());
+                    if (x5age >= 18) {
+                        People z = new People(sys1, x1, x2, x3, x4, x5age, x6, x7, x8, x9, x10, x11, x12);
+                        DataIO.allPeople.add(z);
+                        DataIO.writePeople();
+                        // After a successful addition.
+                        JOptionPane.showMessageDialog(null, "You have done the registration of new user successfully");
+                        this.setVisible(false);
+                        PersonnelUserManagementPage pumpA = new PersonnelUserManagementPage();
+                        pumpA.setVisible(true);
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "ERROR, That's NOT A VALID AGE!", "Error Message", JOptionPane.ERROR_MESSAGE);
+                    }
+
                 } else {
-                    JOptionPane.showMessageDialog(this, "ERROR, That's NOT A VALID AGE!", "Error Message", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "ERROR, Please fill unfilled textfields", "Error Message", JOptionPane.ERROR_MESSAGE);
                 }
 
-            } else {
-                JOptionPane.showMessageDialog(this, "ERROR, Please fill unfilled textfields", "Error Message", JOptionPane.ERROR_MESSAGE);
             }
 
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR, Wrong input format for Age!", "Error Message", JOptionPane.ERROR_MESSAGE);
         }
-
     }
 
     private void GenderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {

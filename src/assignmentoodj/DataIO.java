@@ -8,7 +8,9 @@ package assignmentoodj;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class DataIO {
@@ -27,11 +29,21 @@ public class DataIO {
         try {
             Scanner s1 = new Scanner(new File("Personnel.txt"));
             while (s1.hasNext()) {
+                int sysID = Integer.parseInt(s1.nextLine());
                 String a1 = s1.nextLine();
                 String a2 = s1.nextLine();
-                //int b = Integer.parseInt(s.nextLine());
+                String a3 = s1.nextLine();
+                String a4 = s1.nextLine();
+                int a5 = Integer.parseInt(s1.nextLine());
+                String a6 = s1.nextLine();
+                //Same as Darshini's Date format
+                String a7 = s1.nextLine(); 
+                java.text.SimpleDateFormat myDateFormat = new java.text.SimpleDateFormat("E, dd/MM/yyyy");
+                Date a7Date = myDateFormat.parse(a7);
+                String a8 = s1.nextLine();
+                String a9 = s1.nextLine();
                 s1.nextLine();
-                Personnel c = new Personnel(a1, a2);
+                Personnel c = new Personnel(sysID, a1, a2, a3, a4, a5, a6, a7Date, a8, a9);
                 allPersonnel.add(c);
             }
         } catch (FileNotFoundException e) {
@@ -89,8 +101,20 @@ public class DataIO {
         try {
             PrintWriter personnelWriter = new PrintWriter("Personnel.txt");
             for (int i = 0; i < allPersonnel.size(); i++) {
-                personnelWriter.println(allPersonnel.get(i).getName());
-                personnelWriter.println(allPersonnel.get(i).getPassword());
+                personnelWriter.println(allPersonnel.get(i).getSystemNo());     // WRITE System Number
+                personnelWriter.println(allPersonnel.get(i).getUsername());     // WRITE Username
+                personnelWriter.println(allPersonnel.get(i).getPassword());     // WRITE Password
+                personnelWriter.println(allPersonnel.get(i).getFirstname());    // WRITE First Name
+                personnelWriter.println(allPersonnel.get(i).getLastname());     // WRITE Last Name
+                personnelWriter.println(allPersonnel.get(i).getAge());          // WRITE Age
+                personnelWriter.println(allPersonnel.get(i).getGender());       // WRITE Gender
+                //Change format to "E, dd/MM/yyyy", Same as Darshini's Date format.
+                Date f1 = allPersonnel.get(i).getStartDate();
+                java.text.SimpleDateFormat myDateFormat = new java.text.SimpleDateFormat("E, dd/MM/yyyy");
+                String dateStr = myDateFormat.format(f1);
+                personnelWriter.println(dateStr);    // WRITE StartDate
+                personnelWriter.println(allPersonnel.get(i).getPhone());        // WRITE Phone
+                personnelWriter.println(allPersonnel.get(i).getEmail());        // WRITE Email
                 personnelWriter.println();
             }
             personnelWriter.close();
@@ -134,7 +158,7 @@ public class DataIO {
     //Personnel Checking
     public static Personnel checkPersonnel(String a1) {
         for (int i = 0; i < allPersonnel.size(); i++) {
-            if (a1.equals(allPersonnel.get(i).getName())) {
+            if (a1.equals(allPersonnel.get(i).getUsername())) {
                 return allPersonnel.get(i);
             }
         }
