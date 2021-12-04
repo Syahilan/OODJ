@@ -4,15 +4,15 @@
  */
 package assignmentoodj;
 
-//Swing Import List
-import javax.swing.JFrame;
+//IMPORT LIST
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
-public class PersonnelAddPeoplePage extends JFrame {
+public class PersonnelUpdateUserForm extends JFrame{
 
     // Variables declaration - In order same as the form
     private JTextField usernameTxt;     // Username
@@ -50,13 +50,67 @@ public class PersonnelAddPeoplePage extends JFrame {
     private JLabel jLabel15;
     private JLabel jLabel16;
     // End of variables declaration
-
-    public PersonnelAddPeoplePage() {
+    
+    
+    public PersonnelUpdateUserForm() {
         initComponents();
+        initFields();
     }
+    
+    
+    private void initFields(){
+        //Initialize the fields to the People to Update
+        String c1 = Main.userToUpdate.getUsername();
+        usernameTxt.setText(c1);
 
+        String c2 = Main.userToUpdate.getPassword();
+        passwordTxt.setText(c2);
+
+        String c3 = Main.userToUpdate.getFirstname();
+        FNameTxt.setText(c3);
+
+        String c4 = Main.userToUpdate.getLastname();
+        LNametxt.setText(c4);
+
+        int c5 = Main.userToUpdate.getAge();
+        AgeTxt.setText(String.valueOf(c5));
+
+        String c6 = Main.userToUpdate.getPhone();
+        PhoneTxt.setText(c6);
+
+        String c7 = Main.userToUpdate.getEmail();
+        EmailTxt.setText(c7);
+
+        String c8 = Main.userToUpdate.getAddressln1();
+        AddLineTxt1.setText(c8);
+
+        String c9 = Main.userToUpdate.getAddressln2();
+        AddLineTxt2.setText(c9);
+
+        String c10 = Main.userToUpdate.getIdentityTxt();
+        identityTxt.setText(c10);
+
+        String c11 = Main.userToUpdate.getGender();
+        if (c11.equals("Male")) {
+            GenderComboBox.setSelectedIndex(0);
+            GenderTxt = "Male";
+        } else {
+            GenderComboBox.setSelectedIndex(1);
+            GenderTxt = "Female";
+        }
+
+        String c12 = Main.userToUpdate.getCitizenStat();
+        if (c12.equals("Citizen")) {
+            CitizenshipStatComboBox.setSelectedIndex(0);
+            CitizenTxt = "Citizen";
+        } else {
+            CitizenshipStatComboBox.setSelectedIndex(1);
+            CitizenTxt = "Non-Citizen";
+        }
+    }
+    
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Swing Code">                          
     private void initComponents() {
 
         BackBut = new JButton();
@@ -89,13 +143,13 @@ public class PersonnelAddPeoplePage extends JFrame {
         jLabel16 = new JLabel();
         identityTxt = new JTextField();
 
-        //Fixed Null issue
-        GenderTxt = "Male";
-        CitizenTxt = "Citizen";
+        //Fixed Null issue - Not needed for Update existing user
+        //GenderTxt = "Male";
+        //CitizenTxt = "Citizen";
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Covid Vaccine Management System (CVMS)");
-        setName("PersonnelAddPeoplePage");
+        setName("PersonnelUpdatePeoplePage");
 
         BackBut.setBackground(new java.awt.Color(255, 0, 0));
         BackBut.setFont(new java.awt.Font("Sans Serif", 3, 12)); // NOI18N
@@ -108,10 +162,10 @@ public class PersonnelAddPeoplePage extends JFrame {
 
         jLabel1.setFont(new java.awt.Font("Sans Serif", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel1.setText("People Registration");
+        jLabel1.setText("Update User Profile");
 
         jLabel3.setFont(new java.awt.Font("Sans Serif", 1, 20)); // NOI18N
-        jLabel3.setText("Please enter the details below:");
+        jLabel3.setText("Please enter the new values to the fields below: ");
 
         jLabel2.setFont(new java.awt.Font("Sans Serif", 0, 16)); // NOI18N
         jLabel2.setText("Username:");
@@ -157,17 +211,17 @@ public class PersonnelAddPeoplePage extends JFrame {
         jLabel16.setText("Passport/IC No.:");
 
         RegisterBut.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        RegisterBut.setText("REGISTER");
+        RegisterBut.setText("UPDATE");
         RegisterBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterButActionPerformed(evt);
+                UpdateButActionPerformed(evt);
             }
         });
 
-        ClearBut.setText("Clear");
+        ClearBut.setText("Reset");
         ClearBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClearButActionPerformed(evt);
+                ResetButActionPerformed(evt);
             }
         });
 
@@ -318,87 +372,57 @@ public class PersonnelAddPeoplePage extends JFrame {
         );
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>       
+    }// </editor-fold>
 
-    private void ClearButActionPerformed(java.awt.event.ActionEvent evt) {
-        usernameTxt.setText("");
-        passwordTxt.setText("");
-        FNameTxt.setText("");
-        LNametxt.setText("");
-        AgeTxt.setText("");
-        PhoneTxt.setText("");
-        EmailTxt.setText("");
-        AddLineTxt1.setText("");
-        AddLineTxt2.setText("");
-        identityTxt.setText("");
-        GenderComboBox.setSelectedIndex(0);
-        CitizenshipStatComboBox.setSelectedIndex(0);
-        GenderTxt = "Male";
-        CitizenTxt = "Citizen";
+    
+    private void BackButActionPerformed(java.awt.event.ActionEvent evt){
+        Main.userToUpdate = null;
+        this.setVisible(false);
+        PersonnelManagePeoplePage pmppD = new PersonnelManagePeoplePage();
+        pmppD.setVisible(true);
     }
-
-    private void CitizenStatComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
-        String selected = CitizenshipStatComboBox.getSelectedItem().toString();
-        if (selected.equals("Non-Citizen")) {
+    
+    private void ResetButActionPerformed(java.awt.event.ActionEvent evt) {
+        // <editor-fold defaultstate="collapsed" desc="Reset">
+        String c1 = Main.userToUpdate.getUsername();
+        usernameTxt.setText(c1);
+        String c2 = Main.userToUpdate.getPassword();
+        passwordTxt.setText(c2);
+        String c3 = Main.userToUpdate.getFirstname();
+        FNameTxt.setText(c3);
+        String c4 = Main.userToUpdate.getLastname();
+        LNametxt.setText(c4);
+        int c5 = Main.userToUpdate.getAge();
+        AgeTxt.setText(String.valueOf(c5));
+        String c6 = Main.userToUpdate.getPhone();
+        PhoneTxt.setText(c6);
+        String c7 = Main.userToUpdate.getEmail();
+        EmailTxt.setText(c7);
+        String c8 = Main.userToUpdate.getAddressln1();
+        AddLineTxt1.setText(c8);
+        String c9 = Main.userToUpdate.getAddressln2();
+        AddLineTxt2.setText(c9);
+        String c10 = Main.userToUpdate.getIdentityTxt();
+        identityTxt.setText(c10);
+        String c11 = Main.userToUpdate.getGender();
+        if (c11 == "Male") {
+            GenderComboBox.setSelectedIndex(0);
+            GenderTxt = "Male";
+        } else {
+            GenderComboBox.setSelectedIndex(1);
+            GenderTxt = "Female";
+        }
+        String c12 = Main.userToUpdate.getCitizenStat();
+        if (c12 == "Citizen") {
+            CitizenshipStatComboBox.setSelectedIndex(0);
             CitizenTxt = "Citizen";
-            //System.out.println("YAY, MALAYSIA BOLEH!");
-        } else if (selected != null && selected.equals("Non-Citizen")) {
+        } else {
+            CitizenshipStatComboBox.setSelectedIndex(1);
             CitizenTxt = "Non-Citizen";
-            //System.out.println("UH OH, MALAYSIA NO BOLEH!");
         }
+        // </editor-fold>
     }
-
-    private void RegisterButActionPerformed(java.awt.event.ActionEvent evt) {
-
-        //File file = new File("People.txt");
-        int sys1 = 40001 + DataIO.allPeople.size();
-        String x1 = usernameTxt.getText().trim();
-        String x2 = passwordTxt.getText().trim();
-        String x3 = FNameTxt.getText().trim();
-        String x4 = LNametxt.getText().trim();
-        String x5 = AgeTxt.getText().trim();
-        String x6 = GenderTxt;
-        String x7 = PhoneTxt.getText().trim();
-        String x8 = EmailTxt.getText().trim();
-        String x9 = AddLineTxt1.getText().trim();
-        String x10 = AddLineTxt2.getText().trim();
-        String x11 = CitizenTxt;
-        String x12 = identityTxt.getText().trim();
-
-        People userExisted = DataIO.checkPeople(x1, x7, x8, x12);
-
-        try {
-
-            if (userExisted != null) {
-                JOptionPane.showMessageDialog(this, "ERROR, That user already exists!", "Error Message", JOptionPane.ERROR_MESSAGE);
-            } else {
-                if (x1.length() > 0 && x2.length() > 0 && x3.length() > 0 && x4.length() > 0 && x5.length() > 0 && x6.trim().length() > 0 && x7.length() > 0 && x8.length() > 0 && x9.length() > 0 && x10.length() > 0 && x11.length() > 0 && x12.length() > 0) {
-                    int x5age = Integer.parseInt(AgeTxt.getText().trim());
-                    if (x5age >= 18) {
-                        People z = new People(sys1, x1, x2, x3, x4, x5age, x6, x7, x8, x9, x10, x11, x12);
-                        DataIO.allPeople.add(z);
-                        DataIO.writePeople();
-                        // After a successful addition.
-                        JOptionPane.showMessageDialog(null, "You have done the registration of new user successfully");
-                        this.setVisible(false);
-                        PersonnelUserManagementPage pumpA = new PersonnelUserManagementPage();
-                        pumpA.setVisible(true);
-                        dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "ERROR, That's NOT A VALID AGE!", "Error Message", JOptionPane.ERROR_MESSAGE);
-                    }
-
-                } else {
-                    JOptionPane.showMessageDialog(this, "ERROR, Please fill unfilled textfields", "Error Message", JOptionPane.ERROR_MESSAGE);
-                }
-
-            }
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "ERROR, Wrong input format for Age!", "Error Message", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
+    
     private void GenderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
         String selected = GenderComboBox.getSelectedItem().toString();
         if (selected != null && selected.equals("Male")) {
@@ -408,11 +432,54 @@ public class PersonnelAddPeoplePage extends JFrame {
         }
 
     }
-
-    private void BackButActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
-        PersonnelUserManagementPage pump = new PersonnelUserManagementPage();
-        pump.setVisible(true);
+    
+    private void CitizenStatComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
+        String selected = CitizenshipStatComboBox.getSelectedItem().toString();
+        if (selected.equals("Citizen")) {
+            CitizenTxt = "Citizen";
+            //System.out.println("YAY, MALAYSIA BOLEH!");
+        } else if (selected != null && selected.equals("Non-Citizen")) {
+            CitizenTxt = "Non-Citizen";
+            //System.out.println("UH OH, MALAYSIA NO BOLEH!");
+        }
     }
-
+    
+    private void UpdateButActionPerformed(java.awt.event.ActionEvent evt) {
+        
+        //Update Main.userToUpdate to new fields
+        String x1 = usernameTxt.getText().trim();
+        Main.userToUpdate.setUsername(x1);
+        String x2 = passwordTxt.getText().trim();
+        Main.userToUpdate.setPassword(x2);
+        String x3 = FNameTxt.getText().trim();
+        Main.userToUpdate.setFirstname(x3);
+        String x4 = LNametxt.getText().trim();
+        Main.userToUpdate.setLastname(x4);
+        int x5age = Integer.parseInt(AgeTxt.getText().trim());
+        Main.userToUpdate.setAge(x5age);
+        String x6 = GenderTxt;
+        Main.userToUpdate.setGender(x6);
+        String x7 = PhoneTxt.getText().trim();
+        Main.userToUpdate.setPhone(x7);
+        String x8 = EmailTxt.getText().trim();
+        Main.userToUpdate.setEmail(x8);
+        String x9 = AddLineTxt1.getText().trim();
+        Main.userToUpdate.setAddressln1(x9);
+        String x10 = AddLineTxt2.getText().trim();
+        Main.userToUpdate.setAddressln2(x10);
+        String x11 = CitizenTxt;
+        Main.userToUpdate.setCitizenStat(x11);
+        String x12 = identityTxt.getText().trim();
+        Main.userToUpdate.setIdentityTxt(x12);
+        
+        DataIO.updatePeople();
+        
+        // After a successful edit of People.
+        JOptionPane.showMessageDialog(null, "You have done the update successfully");
+        this.setVisible(false);
+        PersonnelManagePeoplePage pmppE = new PersonnelManagePeoplePage();
+        pmppE.setVisible(true);
+        dispose();
+        
+    }
 }

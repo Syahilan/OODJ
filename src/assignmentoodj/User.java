@@ -4,7 +4,7 @@
  */
 
 // SPECIAL NOTE: THIS USER CLASS is the SUPER CLASS FOR PEOPLE & PERSONNEL SUBCLASSES
-// OO PRinciple Demonstration: Inheritence
+// OO Principle Demonstration: Inheritence
 // This user class will contain methods that are the same for the People and Personnel Sub-class
 
 package assignmentoodj;

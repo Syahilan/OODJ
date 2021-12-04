@@ -8,7 +8,10 @@ package assignmentoodj;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.time.format.DateTimeFormatter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -22,7 +25,8 @@ public class DataIO {
     public static ArrayList<People> allPeople
             = new ArrayList<People>();
     
-    
+        public static ArrayList<People> allPeopleA
+            = new ArrayList<People>();
     
     //READ personnel text file
     public static void readPersonnel() {
@@ -154,6 +158,76 @@ public class DataIO {
     
     }
     
+    //Update People totext file
+    public static void updatePeople() {
+        People f = Main.userToUpdate;
+        try {
+            Scanner s3 = new Scanner(new File("People.txt"));
+            while (s3.hasNext()) {
+                int sysID = Integer.parseInt(s3.nextLine());
+                String ua1 = s3.nextLine();
+                String ua2 = s3.nextLine();
+                String ua3 = s3.nextLine();
+                String ua4 = s3.nextLine();
+                int ua5 = Integer.parseInt(s3.nextLine());
+                String ua6 = s3.nextLine();
+                String ua7 = s3.nextLine();
+                String ua8 = s3.nextLine();
+                String ua9 = s3.nextLine();
+                String ua10 = s3.nextLine();
+                String ua11 = s3.nextLine();
+                String ua12 = s3.nextLine();
+                s3.nextLine();
+
+                //If..Else
+                People d = new People(sysID, ua1, ua2, ua3, ua4, ua5, ua6, ua7, ua8, ua9, ua10, ua11, ua12);
+                if (d.getSystemNo() != Main.userToUpdate.getSystemNo()) {
+                    allPeopleA.add(d);
+                } else if (d.getSystemNo() == Main.userToUpdate.getSystemNo()) {
+                    allPeopleA.add(f);
+                }
+
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found !");
+            try {
+                PrintWriter writePEOFile = new PrintWriter("People.txt");
+            } catch (Exception ax) {
+                System.out.println("Error in write! Creating new People File!");
+            }
+        } catch (Exception a) {
+            System.out.println("Error in READ!");
+        }
+
+        //allPeople has been read successfully!
+        try {
+            PrintWriter peopleUpdater = new PrintWriter("People.txt");
+            for (int i = 0; i < allPeopleA.size(); i++) {
+                peopleUpdater.println(allPeopleA.get(i).getSystemNo());
+                peopleUpdater.println(allPeopleA.get(i).getUsername());
+                peopleUpdater.println(allPeopleA.get(i).getPassword());
+                peopleUpdater.println(allPeopleA.get(i).getFirstname());
+                peopleUpdater.println(allPeopleA.get(i).getLastname());
+                peopleUpdater.println(allPeopleA.get(i).getAge());
+                peopleUpdater.println(allPeopleA.get(i).getGender());
+                peopleUpdater.println(allPeopleA.get(i).getPhone());
+                peopleUpdater.println(allPeopleA.get(i).getEmail());
+                peopleUpdater.println(allPeopleA.get(i).getAddressln1());
+                peopleUpdater.println(allPeopleA.get(i).getAddressln2());
+                peopleUpdater.println(allPeopleA.get(i).getCitizenStat());
+                peopleUpdater.println(allPeopleA.get(i).getIdentityTxt());
+                peopleUpdater.println();
+
+            }
+            peopleUpdater.close();
+            allPeople = allPeopleA;
+            allPeopleA = new ArrayList<People>();
+            
+        } catch (Exception e) {
+            System.out.println("Error in WRITE!");
+        }
+
+    }
     
     //Personnel Checking
     public static Personnel checkPersonnel(String a1) {

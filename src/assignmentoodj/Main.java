@@ -12,7 +12,9 @@ public class Main {
     public static Personnel loginPer;                       //Personnel login instance object container
     
     public static People loginPeo;                          //Personnel login instance object container
-     
+    
+    public static People userToUpdate;                        //Used to Update the People Variables.
+    
     public static void main(String[] args) {
         DataIO.readPersonnel();
         

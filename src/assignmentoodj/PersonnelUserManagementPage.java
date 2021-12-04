@@ -307,7 +307,8 @@ public class PersonnelUserManagementPage extends JFrame{
     
     private void DispPeopleButActionPerformed(java.awt.event.ActionEvent evt) {                                            
         this.setVisible(false);
-        
+        PersonnelManagePeoplePage pmppA = new PersonnelManagePeoplePage();
+        pmppA.setVisible(true);
     }                                           
 
     

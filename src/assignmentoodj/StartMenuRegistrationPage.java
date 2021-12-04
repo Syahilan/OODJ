@@ -381,8 +381,8 @@ public class StartMenuRegistrationPage extends JFrame {
                         // After a successful addition.
                         JOptionPane.showMessageDialog(null, "You have done the registration of new user successfully");
                         this.setVisible(false);
-                        PersonnelUserManagementPage pumpA = new PersonnelUserManagementPage();
-                        pumpA.setVisible(true);
+                        StartMenu smA = new StartMenu();
+                        smA.setVisible(true);
                         dispose();
                     } else {
                         JOptionPane.showMessageDialog(this, "ERROR, That's NOT A VALID AGE!", "Error Message", JOptionPane.ERROR_MESSAGE);
