@@ -357,7 +357,8 @@ public class PersonnelAddPeoplePage extends JFrame {
         if (DataIO.allPeople.size() <= 0) {
             sysA = 40001 + DataIO.allPeople.size();
         } else if (DataIO.allPeople.size() > 0) {
-            sysA = DataIO.allPeople.size() + 40001;
+            int size = DataIO.allPeople.size();
+            sysA = (DataIO.allPeople.get(size -1).getSystemNo()) + 1;
         }
         String x1 = usernameTxt.getText().trim();
         String x2 = passwordTxt.getText().trim();

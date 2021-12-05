@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 public class StartMenuRegistrationPage extends JFrame {
 
     // Variables declaration - In order same as the form
+    private int sysA;
     private JTextField usernameTxt;     // Username
     private JTextField passwordTxt;
     private JTextField FNameTxt;
@@ -352,8 +353,13 @@ public class StartMenuRegistrationPage extends JFrame {
 
     private void RegisterButActionPerformed(java.awt.event.ActionEvent evt) {
 
-        //File file = new File("People.txt");
-        int sys1 = 40001 + DataIO.allPeople.size();
+        //Check size before adding
+        if (DataIO.allPeople.size() <= 0) {
+            sysA = 40001 + DataIO.allPeople.size();
+        } else if (DataIO.allPeople.size() > 0) {
+            int size = DataIO.allPeople.size();
+            sysA = (DataIO.allPeople.get(size -1).getSystemNo()) + 1;
+        }
         String x1 = usernameTxt.getText().trim();
         String x2 = passwordTxt.getText().trim();
         String x3 = FNameTxt.getText().trim();
@@ -377,7 +383,7 @@ public class StartMenuRegistrationPage extends JFrame {
                 if (x1.length() > 0 && x2.length() > 0 && x3.length() > 0 && x4.length() > 0 && x5.length() > 0 && x6.trim().length() > 0 && x7.length() > 0 && x8.length() > 0 && x9.length() > 0 && x10.length() > 0 && x11.length() > 0 && x12.length() > 0) {
                     int x5age = Integer.parseInt(AgeTxt.getText().trim());
                     if (x5age >= 18) {
-                        People z = new People(sys1, x1, x2, x3, x4, x5age, x6, x7, x8, x9, x10, x11, x12);
+                        People z = new People(sysA, x1, x2, x3, x4, x5age, x6, x7, x8, x9, x10, x11, x12);
                         DataIO.allPeople.add(z);
                         DataIO.writePeople();
                         // After a successful addition.
