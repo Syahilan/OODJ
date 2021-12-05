@@ -268,7 +268,8 @@ public class PersonnelManagePeoplePage extends JFrame{
     }            
     
     private void SearchButActionPerformed(java.awt.event.ActionEvent evt) {
-     
+    //Check if the any of the fields entered is null?
+    
      
     }
     
