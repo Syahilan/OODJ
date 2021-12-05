@@ -21,10 +21,12 @@ public class Main {
     
     public static void main(String[] args) {
         DataIO.readPersonnel();
-        
+
         DataIO.readPeople();
-        
-        VaccineInventoryIO.read(); 
+
+        VaccineInventoryIO.read();
+        ScheduleIO.read();
+        AppointmentIO.read();
         
     }
 }
