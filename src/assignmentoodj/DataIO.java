@@ -250,6 +250,20 @@ public class DataIO {
         return null;
     }
     
+    //People Checking after Update
+    public static People checkPeopleA(String x1, String x2, String x3, String x4) {
+        for (int i = 0; i < allPeople.size(); i++) {
+            // Returns all people without the user being updated
+            if (Main.userToUpdate.getSystemNo() != allPeople.get(i).getSystemNo()) {
+                if (x1.equals(allPeople.get(i).getUsername()) || x2.equals(allPeople.get(i).getPhone()) || x3.equals(allPeople.get(i).getEmail()) || x4.equals(allPeople.get(i).getIdentityTxt())) {
+                    return allPeople.get(i);
+                }
+            }
+        }
+        return null;
+    }
+    
+    
     //Register New People.
     
 

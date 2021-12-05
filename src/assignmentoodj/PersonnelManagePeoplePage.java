@@ -277,11 +277,8 @@ public class PersonnelManagePeoplePage extends JFrame{
             this.setVisible(false);
             PersonnelUpdateUserForm puuf = new PersonnelUpdateUserForm();
             puuf.setVisible(true);
-        } else {
-        
-        }
-        
-        
+        } 
+    
     }
     
     

@@ -405,7 +405,7 @@ public class PersonnelUpdateUserForm extends JFrame{
         String c10 = Main.userToUpdate.getIdentityTxt();
         identityTxt.setText(c10);
         String c11 = Main.userToUpdate.getGender();
-        if (c11 == "Male") {
+        if (c11.equals("Male")) {
             GenderComboBox.setSelectedIndex(0);
             GenderTxt = "Male";
         } else {
@@ -413,7 +413,7 @@ public class PersonnelUpdateUserForm extends JFrame{
             GenderTxt = "Female";
         }
         String c12 = Main.userToUpdate.getCitizenStat();
-        if (c12 == "Citizen") {
+        if (c12.equals("Citizen")) {
             CitizenshipStatComboBox.setSelectedIndex(0);
             CitizenTxt = "Citizen";
         } else {
@@ -445,41 +445,81 @@ public class PersonnelUpdateUserForm extends JFrame{
     }
     
     private void UpdateButActionPerformed(java.awt.event.ActionEvent evt) {
-        
+
         //Update Main.userToUpdate to new fields
         String x1 = usernameTxt.getText().trim();
-        Main.userToUpdate.setUsername(x1);
+        //Main.userToUpdate.setUsername(x1);
         String x2 = passwordTxt.getText().trim();
-        Main.userToUpdate.setPassword(x2);
+        //Main.userToUpdate.setPassword(x2);
         String x3 = FNameTxt.getText().trim();
-        Main.userToUpdate.setFirstname(x3);
+        //Main.userToUpdate.setFirstname(x3);
         String x4 = LNametxt.getText().trim();
-        Main.userToUpdate.setLastname(x4);
+        //Main.userToUpdate.setLastname(x4);
+        String x5 = AgeTxt.getText().trim();
         int x5age = Integer.parseInt(AgeTxt.getText().trim());
-        Main.userToUpdate.setAge(x5age);
+        //Main.userToUpdate.setAge(x5age);
         String x6 = GenderTxt;
-        Main.userToUpdate.setGender(x6);
+        //Main.userToUpdate.setGender(x6);
         String x7 = PhoneTxt.getText().trim();
-        Main.userToUpdate.setPhone(x7);
+        //Main.userToUpdate.setPhone(x7);
         String x8 = EmailTxt.getText().trim();
-        Main.userToUpdate.setEmail(x8);
+        //Main.userToUpdate.setEmail(x8);
         String x9 = AddLineTxt1.getText().trim();
-        Main.userToUpdate.setAddressln1(x9);
+        //Main.userToUpdate.setAddressln1(x9);
         String x10 = AddLineTxt2.getText().trim();
-        Main.userToUpdate.setAddressln2(x10);
+        //Main.userToUpdate.setAddressln2(x10);
         String x11 = CitizenTxt;
-        Main.userToUpdate.setCitizenStat(x11);
+        //Main.userToUpdate.setCitizenStat(x11);
         String x12 = identityTxt.getText().trim();
-        Main.userToUpdate.setIdentityTxt(x12);
+        //Main.userToUpdate.setIdentityTxt(x12);
+
+        //Check if important variables already exist.
         
-        DataIO.updatePeople();
         
-        // After a successful edit of People.
-        JOptionPane.showMessageDialog(null, "You have done the update successfully");
-        this.setVisible(false);
-        PersonnelManagePeoplePage pmppE = new PersonnelManagePeoplePage();
-        pmppE.setVisible(true);
-        dispose();
+        People userExisted = DataIO.checkPeopleA(x1, x7, x8, x12);
+
+        try {
+            if (userExisted != null) {
+                JOptionPane.showMessageDialog(this, "ERROR, That user already exists!", "Error Message", JOptionPane.ERROR_MESSAGE);
+            } else {
+
+                if (x1.length() > 0 && x2.length() > 0 && x3.length() > 0 && x4.length() > 0 && x5.length() > 0 && x6.trim().length() > 0 && x7.length() > 0 && x8.length() > 0 && x9.length() > 0 && x10.length() > 0 && x11.length() > 0 && x12.length() > 0) {
+                    if (x5age >= 18) {
+                        
+                        Main.userToUpdate.setUsername(x1);
+                        Main.userToUpdate.setPassword(x2);
+                        Main.userToUpdate.setFirstname(x3);
+                        Main.userToUpdate.setLastname(x4);
+                        Main.userToUpdate.setAge(x5age);
+                        Main.userToUpdate.setGender(x6);
+                        Main.userToUpdate.setPhone(x7);
+                        Main.userToUpdate.setEmail(x8);
+                        Main.userToUpdate.setAddressln1(x9);
+                        Main.userToUpdate.setAddressln2(x10);
+                        Main.userToUpdate.setCitizenStat(x11);
+                        Main.userToUpdate.setIdentityTxt(x12);
+                        
+                        DataIO.updatePeople();
+
+                        // After a successful edit of People.
+                        JOptionPane.showMessageDialog(null, "You have done the update successfully");
+                        this.setVisible(false);
+                        PersonnelManagePeoplePage pmppE = new PersonnelManagePeoplePage();
+                        pmppE.setVisible(true);
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "ERROR, That's NOT A VALID AGE!", "Error Message", JOptionPane.ERROR_MESSAGE);
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "ERROR, Please fill unfilled textfields", "Error Message", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+        } catch (Exception Ex) {
+
+            JOptionPane.showMessageDialog(this, "ERROR, Wrong input format for Age!", "Error Message", JOptionPane.ERROR_MESSAGE);
+        }
         
     }
 }
