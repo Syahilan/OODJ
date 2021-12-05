@@ -60,37 +60,37 @@ public class PersonnelUpdateUserForm extends JFrame{
     
     private void initFields(){
         //Initialize the fields to the People to Update
-        String c1 = Main.userToUpdate.getUsername();
+        String c1 = Main.peoToUpdate.getUsername();
         usernameTxt.setText(c1);
 
-        String c2 = Main.userToUpdate.getPassword();
+        String c2 = Main.peoToUpdate.getPassword();
         passwordTxt.setText(c2);
 
-        String c3 = Main.userToUpdate.getFirstname();
+        String c3 = Main.peoToUpdate.getFirstname();
         FNameTxt.setText(c3);
 
-        String c4 = Main.userToUpdate.getLastname();
+        String c4 = Main.peoToUpdate.getLastname();
         LNametxt.setText(c4);
 
-        int c5 = Main.userToUpdate.getAge();
+        int c5 = Main.peoToUpdate.getAge();
         AgeTxt.setText(String.valueOf(c5));
 
-        String c6 = Main.userToUpdate.getPhone();
+        String c6 = Main.peoToUpdate.getPhone();
         PhoneTxt.setText(c6);
 
-        String c7 = Main.userToUpdate.getEmail();
+        String c7 = Main.peoToUpdate.getEmail();
         EmailTxt.setText(c7);
 
-        String c8 = Main.userToUpdate.getAddressln1();
+        String c8 = Main.peoToUpdate.getAddressln1();
         AddLineTxt1.setText(c8);
 
-        String c9 = Main.userToUpdate.getAddressln2();
+        String c9 = Main.peoToUpdate.getAddressln2();
         AddLineTxt2.setText(c9);
 
-        String c10 = Main.userToUpdate.getIdentityTxt();
+        String c10 = Main.peoToUpdate.getIdentityTxt();
         identityTxt.setText(c10);
 
-        String c11 = Main.userToUpdate.getGender();
+        String c11 = Main.peoToUpdate.getGender();
         if (c11.equals("Male")) {
             GenderComboBox.setSelectedIndex(0);
             GenderTxt = "Male";
@@ -99,7 +99,7 @@ public class PersonnelUpdateUserForm extends JFrame{
             GenderTxt = "Female";
         }
 
-        String c12 = Main.userToUpdate.getCitizenStat();
+        String c12 = Main.peoToUpdate.getCitizenStat();
         if (c12.equals("Citizen")) {
             CitizenshipStatComboBox.setSelectedIndex(0);
             CitizenTxt = "Citizen";
@@ -376,7 +376,7 @@ public class PersonnelUpdateUserForm extends JFrame{
 
     
     private void BackButActionPerformed(java.awt.event.ActionEvent evt){
-        Main.userToUpdate = null;
+        Main.peoToUpdate = null;
         this.setVisible(false);
         PersonnelManagePeoplePage pmppD = new PersonnelManagePeoplePage();
         pmppD.setVisible(true);
@@ -384,27 +384,27 @@ public class PersonnelUpdateUserForm extends JFrame{
     
     private void ResetButActionPerformed(java.awt.event.ActionEvent evt) {
         // <editor-fold defaultstate="collapsed" desc="Reset">
-        String c1 = Main.userToUpdate.getUsername();
+        String c1 = Main.peoToUpdate.getUsername();
         usernameTxt.setText(c1);
-        String c2 = Main.userToUpdate.getPassword();
+        String c2 = Main.peoToUpdate.getPassword();
         passwordTxt.setText(c2);
-        String c3 = Main.userToUpdate.getFirstname();
+        String c3 = Main.peoToUpdate.getFirstname();
         FNameTxt.setText(c3);
-        String c4 = Main.userToUpdate.getLastname();
+        String c4 = Main.peoToUpdate.getLastname();
         LNametxt.setText(c4);
-        int c5 = Main.userToUpdate.getAge();
+        int c5 = Main.peoToUpdate.getAge();
         AgeTxt.setText(String.valueOf(c5));
-        String c6 = Main.userToUpdate.getPhone();
+        String c6 = Main.peoToUpdate.getPhone();
         PhoneTxt.setText(c6);
-        String c7 = Main.userToUpdate.getEmail();
+        String c7 = Main.peoToUpdate.getEmail();
         EmailTxt.setText(c7);
-        String c8 = Main.userToUpdate.getAddressln1();
+        String c8 = Main.peoToUpdate.getAddressln1();
         AddLineTxt1.setText(c8);
-        String c9 = Main.userToUpdate.getAddressln2();
+        String c9 = Main.peoToUpdate.getAddressln2();
         AddLineTxt2.setText(c9);
-        String c10 = Main.userToUpdate.getIdentityTxt();
+        String c10 = Main.peoToUpdate.getIdentityTxt();
         identityTxt.setText(c10);
-        String c11 = Main.userToUpdate.getGender();
+        String c11 = Main.peoToUpdate.getGender();
         if (c11.equals("Male")) {
             GenderComboBox.setSelectedIndex(0);
             GenderTxt = "Male";
@@ -412,7 +412,7 @@ public class PersonnelUpdateUserForm extends JFrame{
             GenderComboBox.setSelectedIndex(1);
             GenderTxt = "Female";
         }
-        String c12 = Main.userToUpdate.getCitizenStat();
+        String c12 = Main.peoToUpdate.getCitizenStat();
         if (c12.equals("Citizen")) {
             CitizenshipStatComboBox.setSelectedIndex(0);
             CitizenTxt = "Citizen";
@@ -486,18 +486,18 @@ public class PersonnelUpdateUserForm extends JFrame{
                 if (x1.length() > 0 && x2.length() > 0 && x3.length() > 0 && x4.length() > 0 && x5.length() > 0 && x6.trim().length() > 0 && x7.length() > 0 && x8.length() > 0 && x9.length() > 0 && x10.length() > 0 && x11.length() > 0 && x12.length() > 0) {
                     if (x5age >= 18) {
                         
-                        Main.userToUpdate.setUsername(x1);
-                        Main.userToUpdate.setPassword(x2);
-                        Main.userToUpdate.setFirstname(x3);
-                        Main.userToUpdate.setLastname(x4);
-                        Main.userToUpdate.setAge(x5age);
-                        Main.userToUpdate.setGender(x6);
-                        Main.userToUpdate.setPhone(x7);
-                        Main.userToUpdate.setEmail(x8);
-                        Main.userToUpdate.setAddressln1(x9);
-                        Main.userToUpdate.setAddressln2(x10);
-                        Main.userToUpdate.setCitizenStat(x11);
-                        Main.userToUpdate.setIdentityTxt(x12);
+                        Main.peoToUpdate.setUsername(x1);
+                        Main.peoToUpdate.setPassword(x2);
+                        Main.peoToUpdate.setFirstname(x3);
+                        Main.peoToUpdate.setLastname(x4);
+                        Main.peoToUpdate.setAge(x5age);
+                        Main.peoToUpdate.setGender(x6);
+                        Main.peoToUpdate.setPhone(x7);
+                        Main.peoToUpdate.setEmail(x8);
+                        Main.peoToUpdate.setAddressln1(x9);
+                        Main.peoToUpdate.setAddressln2(x10);
+                        Main.peoToUpdate.setCitizenStat(x11);
+                        Main.peoToUpdate.setIdentityTxt(x12);
                         
                         DataIO.updatePeople();
 

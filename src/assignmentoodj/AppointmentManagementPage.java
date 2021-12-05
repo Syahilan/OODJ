@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -104,14 +105,27 @@ public class AppointmentManagementPage extends JFrame {
         startDate.setEditable(false);
         startDate.setToolTipText("Start Date");
 
-        btnStartDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vacDesign/cal.jpg"))); // NOI18N
+        
+        ImageIcon calIcon = null;
+        String iconFile = "cal.jpg";
+        java.net.URL imgURL = AppointmentManagementPage.class
+                .getResource(iconFile);
+        if (imgURL != null) {
+            calIcon = new ImageIcon(imgURL);
+        } else {
+            JOptionPane.showMessageDialog(this, "Icon image " + iconFile
+                    + " not found !");
+        }
+        
+        
+        btnStartDate.setIcon(calIcon); // NOI18N
         btnStartDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartDateActionPerformed(evt);
             }
         });
 
-        btnEndDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vacDesign/cal.jpg"))); // NOI18N
+        btnEndDate.setIcon(calIcon); // NOI18N
         btnEndDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEndDateActionPerformed(evt);
@@ -128,7 +142,17 @@ public class AppointmentManagementPage extends JFrame {
             }
         });
 
-        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vacDesign/search.jpg"))); // NOI18N
+        ImageIcon seaIcon = null;
+        String iconFileA = "search.jpg";
+        java.net.URL imgURLA = AppointmentManagementPage.class
+                .getResource(iconFileA);
+        if (imgURLA != null) {
+            seaIcon = new ImageIcon(imgURLA);
+        } else {
+            JOptionPane.showMessageDialog(this, "Icon image " + iconFileA
+                    + " not found !");
+        }
+        btnSearch.setIcon(seaIcon); // NOI18N
         btnSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -21,12 +21,17 @@ public class DataIO {
     // Array lists for Personnel & People
     public static ArrayList<Personnel> allPersonnel
             = new ArrayList<Personnel>();
-    
+
     public static ArrayList<People> allPeople
             = new ArrayList<People>();
-    
-        public static ArrayList<People> allPeopleA
+
+    public static ArrayList<People> allPeopleA
             = new ArrayList<People>();
+
+    
+    // Inheritence
+    public static ArrayList<User> allUser
+            = new ArrayList<User>();
     
     //READ personnel text file
     public static void readPersonnel() {
@@ -160,7 +165,7 @@ public class DataIO {
     
     //Update People totext file
     public static void updatePeople() {
-        People f = Main.userToUpdate;
+        People f = Main.peoToUpdate;
         try {
             Scanner s3 = new Scanner(new File("People.txt"));
             while (s3.hasNext()) {
@@ -181,9 +186,9 @@ public class DataIO {
 
                 //If..Else
                 People d = new People(sysID, ua1, ua2, ua3, ua4, ua5, ua6, ua7, ua8, ua9, ua10, ua11, ua12);
-                if (d.getSystemNo() != Main.userToUpdate.getSystemNo()) {
+                if (d.getSystemNo() != Main.peoToUpdate.getSystemNo()) {
                     allPeopleA.add(d);
-                } else if (d.getSystemNo() == Main.userToUpdate.getSystemNo()) {
+                } else if (d.getSystemNo() == Main.peoToUpdate.getSystemNo()) {
                     allPeopleA.add(f);
                 }
 
@@ -254,7 +259,7 @@ public class DataIO {
     public static People checkPeopleA(String x1, String x2, String x3, String x4) {
         for (int i = 0; i < allPeople.size(); i++) {
             // Returns all people without the user being updated
-            if (Main.userToUpdate.getSystemNo() != allPeople.get(i).getSystemNo()) {
+            if (Main.peoToUpdate.getSystemNo() != allPeople.get(i).getSystemNo()) {
                 if (x1.equals(allPeople.get(i).getUsername()) || x2.equals(allPeople.get(i).getPhone()) || x3.equals(allPeople.get(i).getEmail()) || x4.equals(allPeople.get(i).getIdentityTxt())) {
                     return allPeople.get(i);
                 }
@@ -264,7 +269,88 @@ public class DataIO {
     }
     
     
-    //Register New People.
+    //Delete a User - Can be run for both Personnel, People and any other type of user added in the future.
+    
+    public static void deleteUser(){
+    
+        if(Main.userToDelete == Main.peoToUpdate){
+        //Read with People Structure
+        User gA = Main.userToDelete;
+        
+        try {
+            Scanner s4a = new Scanner(new File("People.txt"));
+            while (s4a.hasNext()) {
+                int sysID = Integer.parseInt(s4a.nextLine());
+                String ua1 = s4a.nextLine();
+                String ua2 = s4a.nextLine();
+                String ua3 = s4a.nextLine();
+                String ua4 = s4a.nextLine();
+                int ua5 = Integer.parseInt(s4a.nextLine());
+                String ua6 = s4a.nextLine();
+                String ua7 = s4a.nextLine();
+                String ua8 = s4a.nextLine();
+                String ua9 = s4a.nextLine();
+                String ua10 = s4a.nextLine();
+                String ua11 = s4a.nextLine();
+                String ua12 = s4a.nextLine();
+                s4a.nextLine();
+
+                //If..Else
+                People e = new People(sysID, ua1, ua2, ua3, ua4, ua5, ua6, ua7, ua8, ua9, ua10, ua11, ua12);
+                if (e.getSystemNo() != gA.getSystemNo()) {
+                    allPeopleA.add(e);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found !");
+            try {
+                PrintWriter writePEOFile = new PrintWriter("People.txt");
+            } catch (Exception ax) {
+                System.out.println("Error in write! Creating new People File!");
+            }
+        } catch (Exception a) {
+            System.out.println("Error in READ!");
+        }
+
+        //allPeople has been read successfully without the deleted user!
+        try {
+            PrintWriter peopleDeleter = new PrintWriter("People.txt");
+            for (int i = 0; i < allPeopleA.size(); i++) {
+                peopleDeleter.println(allPeopleA.get(i).getSystemNo());
+                peopleDeleter.println(allPeopleA.get(i).getUsername());
+                peopleDeleter.println(allPeopleA.get(i).getPassword());
+                peopleDeleter.println(allPeopleA.get(i).getFirstname());
+                peopleDeleter.println(allPeopleA.get(i).getLastname());
+                peopleDeleter.println(allPeopleA.get(i).getAge());
+                peopleDeleter.println(allPeopleA.get(i).getGender());
+                peopleDeleter.println(allPeopleA.get(i).getPhone());
+                peopleDeleter.println(allPeopleA.get(i).getEmail());
+                peopleDeleter.println(allPeopleA.get(i).getAddressln1());
+                peopleDeleter.println(allPeopleA.get(i).getAddressln2());
+                peopleDeleter.println(allPeopleA.get(i).getCitizenStat());
+                peopleDeleter.println(allPeopleA.get(i).getIdentityTxt());
+                peopleDeleter.println();
+
+            }
+            peopleDeleter.close();
+            allPeople = allPeopleA;
+            allPeopleA = new ArrayList<People>();
+            
+        } catch (Exception e) {
+            System.out.println("Error in WRITE!");
+        }
+        
+        
+        } else if(Main.userToDelete == Main.perToUpdate){
+        //Read with Personnel Structure
+        User gA = Main.userToDelete;
+        
+        
+        }
+        
+        
+    }
+    
     
 
 }

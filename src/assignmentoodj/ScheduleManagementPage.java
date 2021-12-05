@@ -7,6 +7,7 @@ package assignmentoodj;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -79,7 +80,17 @@ public class ScheduleManagementPage extends JFrame{
         vName.insertItemAt("", 0);
         vName.setSelectedIndex(-1);
 
-        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vacDesign/search.jpg"))); // NOI18N
+        ImageIcon seaIcon = null;
+        String iconFile = "search.jpg";
+        java.net.URL imgURL = ScheduleManagementPage.class
+                .getResource(iconFile);
+        if (imgURL != null) {
+            seaIcon = new ImageIcon(imgURL);
+        } else {
+            JOptionPane.showMessageDialog(this, "Icon image " + iconFile
+                    + " not found !");
+        }
+        btnSearch.setIcon(seaIcon); // NOI18N
         btnSearch.setToolTipText("Search");
         btnSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnSearch.setMaximumSize(new java.awt.Dimension(30, 30));

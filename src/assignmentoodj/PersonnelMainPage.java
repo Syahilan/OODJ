@@ -227,20 +227,20 @@ public class PersonnelMainPage extends JFrame{
     }                                           
 
     private void manageScheduleButActionPerformed(java.awt.event.ActionEvent evt) {                                               
-//        this.setVisible(false);
-//        Main.functionL1 = "SCH"; 
-//        ScheduleManagementPage sch = new ScheduleManagementPage(); 
-//        sch.setVisible(true);
+        this.setVisible(false);
+        Main.functionL1 = "SCH"; 
+        ScheduleManagementPage sch = new ScheduleManagementPage(); 
+        sch.setVisible(true);
         
         
     }                                              
                                     
      private void manageAppointmentButActionPerformed(java.awt.event.ActionEvent evt){
          this.setVisible(false);
-//            Main.functionL1 = "APPMT";
-//            Main.access = "PERSONNEL";
-//            AppointmentManagementPage appmt = new AppointmentManagementPage();
-//            appmt.setVisible(true);
+            Main.functionL1 = "APPMT";
+            Main.access = "PERSONNEL";
+            AppointmentManagementPage appmt = new AppointmentManagementPage();
+            appmt.setVisible(true);
          
          
      }

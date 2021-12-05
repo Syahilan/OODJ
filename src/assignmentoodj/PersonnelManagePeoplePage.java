@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -150,7 +151,7 @@ public class PersonnelManagePeoplePage extends JFrame{
                 String x12 = thisPeople.get(iRowPeo).getCitizenStat();
                 String x13 = thisPeople.get(iRowPeo).getIdentityTxt();
                 People pA = new People(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13);
-                Main.userToUpdate = pA;
+                Main.peoToUpdate = pA;
                 // OUTPUT = People pA [People Object]
                 
             }
@@ -161,7 +162,7 @@ public class PersonnelManagePeoplePage extends JFrame{
         DeleteUserBut.setText("DELETE USER");
         DeleteUserBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //DeleteUserButActionPerformed(evt);
+                DeleteUserButActionPerformed(evt);
             }
         });
 
@@ -273,10 +274,24 @@ public class PersonnelManagePeoplePage extends JFrame{
     
     
     private void UpdateUserButActionPerformed(java.awt.event.ActionEvent evt) {
-        if (Main.userToUpdate != null){
+        if (Main.peoToUpdate != null){
             this.setVisible(false);
             PersonnelUpdateUserForm puuf = new PersonnelUpdateUserForm();
             puuf.setVisible(true);
+        } 
+    
+    }
+    
+    
+    private void DeleteUserButActionPerformed(java.awt.event.ActionEvent evt){
+    if (Main.peoToUpdate != null){
+            // DELETE THE USER
+            Main.userToDelete = Main.peoToUpdate;    
+            DataIO.deleteUser();
+            JOptionPane.showMessageDialog(null, "User Deleted!");
+            this.setVisible(false);
+            PersonnelUserManagementPage pumpC = new PersonnelUserManagementPage();
+            pumpC.setVisible(true);
         } 
     
     }

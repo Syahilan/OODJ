@@ -13,8 +13,12 @@ public class Main {
     
     public static People loginPeo;                          //Personnel login instance object container
     
-    public static People userToUpdate;                        //Used to Update the People Variables.
+    public static Personnel perToUpdate;                    //Used to Update the Personnel Variables.
+    
+    public static People peoToUpdate;                       //Used to Update the People Variables.
 
+    public static User userToDelete;                        //Used to Delete both people and personnel variable and can be used to delete new future user types as well.
+    
     public static String functionL1;
     public static String functionL2;
     public static String access;
