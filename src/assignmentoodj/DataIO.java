@@ -15,6 +15,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class DataIO {
 
@@ -31,6 +32,9 @@ public class DataIO {
     
     // Inheritence
     public static ArrayList<User> allUser
+            = new ArrayList<User>();
+    
+    public static ArrayList<User> allUserSearch
             = new ArrayList<User>();
     
     //READ personnel text file
@@ -268,9 +272,53 @@ public class DataIO {
         return null;
     }
     
-    
+    //User Checking for Search function (People, Personnel + Any Future Types) [INHERITENCE THEORY APPLIED]
+    public static User checkUser(String x1, String x2) {
+        
+        int searchController = Main.userType;
+        boolean flag = false;
+        switch (searchController) {
+            case 0:
+                JOptionPane.showMessageDialog(null, "Error: You forgot to set the user int for type.");
+                break;
+            case 1:
+                for (int i = 0; i < allPeople.size(); i++) {
+                    if (x1.equals(allPeople.get(i).getFirstname()) && x2.equals(allPeople.get(i).getLastname())) {
+                        Main.userToSearch = allPeople.get(i);
+                        User f0 = Main.userToSearch;
+                        allUserSearch.add(f0);
+                    } else {
+                        flag = true;
+                    }
+                }
+                if(flag == true && Main.userToSearch == null){
+                    JOptionPane.showMessageDialog(null, "Sorry, that user does not exist. Please re-enter to search again.");
+                    flag = false;
+                }
+                break;
+            case 2:
+                for (int i = 0; i < allPersonnel.size(); i++) {
+                    if (x1.equals(allPersonnel.get(i).getFirstname()) && x2.equals(allPersonnel.get(i).getLastname())) {
+                        Main.userToSearch = allPersonnel.get(i);
+                        User f1 = Main.userToSearch;
+                        allUserSearch.add(f1);
+                    } else {
+                        flag = true;
+                    }
+                }
+                if(flag == true && Main.userToSearch == null){
+                    JOptionPane.showMessageDialog(null, "Sorry, that user does not exist. Please re-enter to search again.");
+                    flag = false;
+                }
+                break;
+            default: 
+                JOptionPane.showMessageDialog(null, "Error: Problem in DataIO.java class");
+                break;   
+        }
+        return null;
+    }
+
     //Delete a User - Can be run for both Personnel, People and any other type of user added in the future.
-    
     public static void deleteUser(){
     
         if(Main.userToDelete == Main.peoToUpdate){
@@ -343,14 +391,19 @@ public class DataIO {
         
         } else if(Main.userToDelete == Main.perToUpdate){
         //Read with Personnel Structure
-        User gA = Main.userToDelete;
-        
+        User gB = Main.userToDelete;
+        //Add the logic to Delete personnel here (PLUG and PLAY 322-335)
         
         }
         
-        
     }
     
-    
+    //Search a User - Can be run for both Personnel, People and any other type of user added in the future.
+    public static void searchUser(){
+        //if(Main.userToSearch == Main.peoToUpdate){}
+            
+            
+        
+    }
 
 }

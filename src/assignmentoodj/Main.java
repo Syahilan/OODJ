@@ -8,6 +8,11 @@ public class Main {
     
     public static StartMenu startMenu = new StartMenu();    //Call the Start Menu When program is launched
       
+    
+    //Static Integers
+    public static int userType = 0;
+    
+    
     // Object containers
     public static Personnel loginPer;                       //Personnel login instance object container
     
@@ -18,6 +23,8 @@ public class Main {
     public static People peoToUpdate;                       //Used to Update the People Variables.
 
     public static User userToDelete;                        //Used to Delete both people and personnel variable and can be used to delete new future user types as well.
+    
+    public static User userToSearch;                        //Used to Search both people and personnel variable and can be used to delete new future user types as well.
     
     public static String functionL1;
     public static String functionL2;
