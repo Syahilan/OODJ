@@ -47,8 +47,10 @@ public class PeopleLoginPage extends JFrame {
         LabelPass = new javax.swing.JLabel();
         PasswordTxt = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Covid Vaccine Management System (CVMS)");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
+        setLocationByPlatform(true);
+        setResizable(false);
         setName("PeopleLoginPage"); // NOI18N
         
 

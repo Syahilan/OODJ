@@ -59,8 +59,10 @@ public class PersonnelMainPage extends JFrame{
         PersonnelMainMenuPage.setSelected(true);
         PersonnelMainMenuPage.setText("jRadioButtonMenuItem1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Covid Vaccine Management System (CVMS)");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
+        setLocationByPlatform(true);
+        setResizable(false);
         setName("PersonnelMainPage"); // NOI18N
         
         jLabel1.setFont(new java.awt.Font("Sans Serif", 1, 30)); // NOI18N
@@ -226,21 +228,21 @@ public class PersonnelMainPage extends JFrame{
         
     }                                           
 
-    private void manageScheduleButActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void manageScheduleButActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
-        Main.functionL1 = "SCH"; 
-        ScheduleManagementPage sch = new ScheduleManagementPage(); 
+        Main.access = "PERSONNEL";
+        Main.functionL1 = "SCH";
+        ScheduleManagementPage sch = new ScheduleManagementPage();
         sch.setVisible(true);
-        
-        
-    }                                              
-                                    
-     private void manageAppointmentButActionPerformed(java.awt.event.ActionEvent evt){
-         this.setVisible(false);
-            Main.functionL1 = "APPMT";
-            Main.access = "PERSONNEL";
-            AppointmentManagementPage appmt = new AppointmentManagementPage();
-            appmt.setVisible(true);
+
+    }
+
+    private void manageAppointmentButActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);
+        Main.access = "PERSONNEL";
+        Main.functionL1 = "APPMT";
+        AppointmentManagementPage appmt = new AppointmentManagementPage();
+        appmt.setVisible(true);
          
          
      }

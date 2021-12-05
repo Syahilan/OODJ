@@ -93,8 +93,10 @@ public class StartMenuRegistrationPage extends JFrame {
         GenderTxt = "Male";
         CitizenTxt = "Citizen";
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Covid Vaccine Management System (CVMS)");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
+        setLocationByPlatform(true);
+        setResizable(false);
         setName("StartMenuRegistrationPage");
 
         BackBut.setBackground(new java.awt.Color(255, 0, 0));

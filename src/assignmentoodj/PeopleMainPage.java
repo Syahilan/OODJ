@@ -10,9 +10,8 @@ import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JRadioButtonMenuItem;
 
+public class PeopleMainPage extends JFrame {
 
-public class PeopleMainPage extends JFrame{
-               
     // Variables declaration                   
     private JButton bookAppointBut;
     private JRadioButtonMenuItem PeopleMainMenuPage;
@@ -57,8 +56,10 @@ public class PeopleMainPage extends JFrame{
         PeopleMainMenuPage.setSelected(true);
         PeopleMainMenuPage.setText("jRadioButtonMenuItem1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Covid Vaccine Management System (CVMS)");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
+        setLocationByPlatform(true);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Sans Serif", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
@@ -221,7 +222,5 @@ public class PeopleMainPage extends JFrame{
          
          
      }
-    
-    
-    
+
 }

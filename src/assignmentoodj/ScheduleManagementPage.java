@@ -18,8 +18,9 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Darshini
  */
-public class ScheduleManagementPage extends JFrame{
-        public ScheduleManagementPage() {
+public class ScheduleManagementPage extends JFrame {
+
+    public ScheduleManagementPage() {
         initComponents();
     }
 
@@ -46,7 +47,7 @@ public class ScheduleManagementPage extends JFrame{
         btnBook = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Schedule Management");
+        setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
         setLocationByPlatform(true);
         setName("schFrame"); // NOI18N
         setResizable(false);
@@ -57,10 +58,10 @@ public class ScheduleManagementPage extends JFrame{
         title.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         title.setForeground(new java.awt.Color(0, 51, 204));
         title.setText("Schedule Management");
-        if (Main.functionL1 == "APPMT"){ 
-            title.setText("Vaccination Program"); 
-        }else { 
-            title.setText("Schedule Management"); 
+        if (Main.functionL1 == "APPMT") {
+            title.setText("Vaccination Program");
+        } else {
+            title.setText("Schedule Management");
         }
 
         lblCentre.setText("Centre");
@@ -123,69 +124,69 @@ public class ScheduleManagementPage extends JFrame{
             }
         });
 
-        if(Main.functionL1 == "APPMT"){ 
-            btnAddSch.setVisible(false); 
-        } else  if (Main.functionL1 == "SCH"){ 
-            btnAddSch.setVisible(true); 
+        if (Main.functionL1 == "APPMT") {
+            btnAddSch.setVisible(false);
+        } else if (Main.functionL1 == "SCH") {
+            btnAddSch.setVisible(true);
         }
 
         javax.swing.GroupLayout queryPanelLayout = new javax.swing.GroupLayout(queryPanel);
         queryPanel.setLayout(queryPanelLayout);
         queryPanelLayout.setHorizontalGroup(
-            queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(queryPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(queryPanelLayout.createSequentialGroup()
-                        .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(subTitle)
-                            .addGroup(queryPanelLayout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addGap(143, 143, 143)
-                                .addComponent(title)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(queryPanelLayout.createSequentialGroup()
-                        .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblVac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(centre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(39, 39, 39)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAddSch, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
+                queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(queryPanelLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(queryPanelLayout.createSequentialGroup()
+                                                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(subTitle)
+                                                        .addGroup(queryPanelLayout.createSequentialGroup()
+                                                                .addComponent(btnBack)
+                                                                .addGap(143, 143, 143)
+                                                                .addComponent(title)))
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(queryPanelLayout.createSequentialGroup()
+                                                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lblCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lblVac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(27, 27, 27)
+                                                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(centre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(vName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(39, 39, 39)
+                                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnAddSch, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(42, 42, 42))))
         );
         queryPanelLayout.setVerticalGroup(
-            queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(queryPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(queryPanelLayout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(subTitle)
-                        .addGap(30, 30, 30))
-                    .addGroup(queryPanelLayout.createSequentialGroup()
-                        .addComponent(title)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, queryPanelLayout.createSequentialGroup()
-                        .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(centre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblVac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, queryPanelLayout.createSequentialGroup()
-                        .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnAddSch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(37, 37, 37))))
+                queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(queryPanelLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(queryPanelLayout.createSequentialGroup()
+                                                .addComponent(btnBack)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(subTitle)
+                                                .addGap(30, 30, 30))
+                                        .addGroup(queryPanelLayout.createSequentialGroup()
+                                                .addComponent(title)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, queryPanelLayout.createSequentialGroup()
+                                                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(lblCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(centre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(lblVac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(vName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(20, 20, 20))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, queryPanelLayout.createSequentialGroup()
+                                                .addGroup(queryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(btnAddSch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(37, 37, 37))))
         );
 
         displayPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -199,7 +200,7 @@ public class ScheduleManagementPage extends JFrame{
         model.setColumnIdentifiers(columns);
         // Add table Sorter
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(
-            model);
+                model);
         // Sort by date column (col 2)
         // Define a custom comparator:
         // => can't use displayed format for sorting, use yyyyMMdd instead
@@ -207,16 +208,16 @@ public class ScheduleManagementPage extends JFrame{
             public int compare(String s1, String s2) {
                 // Sort displayed date column re-formatted to yyyyMMdd
                 String str1 = s1.substring(11) + s1.substring(8, 10)
-                + s1.substring(5, 7);
+                        + s1.substring(5, 7);
                 String str2 = s2.substring(11) + s2.substring(8, 10)
-                + s2.substring(5, 7);
+                        + s2.substring(5, 7);
                 return str1.compareTo(str2);
             }
         });
         schTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         schTable.setModel(model);
         schTable.setRowHeight(18);
-        schTable.setRowSorter(sorter        );
+        schTable.setRowSorter(sorter);
         schTable.setDefaultEditor(Object.class, null);
         schTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -255,24 +256,24 @@ public class ScheduleManagementPage extends JFrame{
             }
         });
 
-        if(Main.functionL1 == "APPMT"){ 
-            btnBook.setVisible(true); 
-            btnUpdate.setVisible(false); 
-            btnDelete.setVisible(false); 
-            btnSave.setVisible(false); 
-        } else  if (Main.functionL1 == "SCH"){ 
-            btnBook.setVisible(false); 
-            btnUpdate.setVisible(true); 
-            btnDelete.setVisible(true); 
-            btnSave.setVisible(true); 
+        if (Main.functionL1 == "APPMT") {
+            btnBook.setVisible(true);
+            btnUpdate.setVisible(false);
+            btnDelete.setVisible(false);
+            btnSave.setVisible(false);
+        } else if (Main.functionL1 == "SCH") {
+            btnBook.setVisible(false);
+            btnUpdate.setVisible(true);
+            btnDelete.setVisible(true);
+            btnSave.setVisible(true);
         }
         btnBook.setText("Book Appointment(def)");
         btnBook.setMaximumSize(new java.awt.Dimension(200, 25));
         btnBook.setMinimumSize(new java.awt.Dimension(200, 25));
         btnBook.setPreferredSize(new java.awt.Dimension(200, 25));
-        if(Main.functionL2 == "UPDATE"){
+        if (Main.functionL2 == "UPDATE") {
             btnBook.setText("Confirm Selection");
-        }else if (Main.functionL2 == "BOOK"){
+        } else if (Main.functionL2 == "BOOK") {
             btnBook.setText("Book Appointment");
         }
         btnBook.addActionListener(new java.awt.event.ActionListener() {
@@ -284,64 +285,64 @@ public class ScheduleManagementPage extends JFrame{
         javax.swing.GroupLayout displayPanelLayout = new javax.swing.GroupLayout(displayPanel);
         displayPanel.setLayout(displayPanelLayout);
         displayPanelLayout.setHorizontalGroup(
-            displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(schScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
-            .addGroup(displayPanelLayout.createSequentialGroup()
-                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(displayPanelLayout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81)
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(displayPanelLayout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(schScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
+                        .addGroup(displayPanelLayout.createSequentialGroup()
+                                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(displayPanelLayout.createSequentialGroup()
+                                                .addGap(127, 127, 127)
+                                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(81, 81, 81)
+                                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(81, 81, 81)
+                                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(displayPanelLayout.createSequentialGroup()
+                                                .addGap(257, 257, 257)
+                                                .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         displayPanelLayout.setVerticalGroup(
-            displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, displayPanelLayout.createSequentialGroup()
-                .addComponent(schScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, displayPanelLayout.createSequentialGroup()
+                                .addComponent(schScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(queryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(queryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(queryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                .addGap(12, 12, 12)
-                .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(queryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                                .addGap(12, 12, 12)
+                                .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {
         String centreStr = (centre.getSelectedIndex() == -1) ? "" : centre
                 .getSelectedItem().toString();
         String vacStr = (vName.getSelectedIndex() == -1) ? "" : vName
@@ -353,6 +354,7 @@ public class ScheduleManagementPage extends JFrame{
         final Object[] data = new Object[NB_COL];
 
         rowIndexes = new ArrayList<Integer>();
+
         model.setRowCount(0);
         for (int i = 0; i < schedules.size(); i++) {
             if ((centreStr == "" || schedules.get(i).getCentre().equals(centreStr))
@@ -365,6 +367,7 @@ public class ScheduleManagementPage extends JFrame{
                         + schedules.get(i).getEndTime();
                 data[4] = schedules.get(i).getVacName();
                 data[5] = schedules.get(i).getQuantity();
+
                 model.addRow(data);
                 // Set rowIndexes with the index of the records found
                 rowIndexes.add(i);
@@ -378,13 +381,13 @@ public class ScheduleManagementPage extends JFrame{
                     "WARNING: No Records Retrieved for this criteria !");
         }
 
-    }                                         
+    }
 
-    private void btnAddSchActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void btnAddSchActionPerformed(java.awt.event.ActionEvent evt) {
         new CreateSchedulePage().setVisible(true);
-    }                                         
+    }
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {
         int i = schTable.getSelectedRow();
         if (i >= 0) {
             // Call update schedule page with array of selected data
@@ -397,9 +400,9 @@ public class ScheduleManagementPage extends JFrame{
         } else {
             JOptionPane.showMessageDialog(this, "Please Select row to be Updated !");
         }
-    }                                         
+    }
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {
         int reply = JOptionPane.showConfirmDialog(null,
                 "Confirm Save records to File ?", "WARNING",
                 JOptionPane.YES_NO_OPTION);
@@ -414,9 +417,9 @@ public class ScheduleManagementPage extends JFrame{
         } else {
             JOptionPane.showMessageDialog(schTable, "Operation Cancelled: No Records Saved !");
         }
-    }                                       
+    }
 
-    private void schTableMouseClicked(java.awt.event.MouseEvent evt) {                                      
+    private void schTableMouseClicked(java.awt.event.MouseEvent evt) {
         try {
             // i = the index of the selected row
             int i = schTable.getSelectedRow();
@@ -429,9 +432,9 @@ public class ScheduleManagementPage extends JFrame{
             JOptionPane.showMessageDialog(this,
                     "ERROR: Please try again !");
         }
-    }                                     
+    }
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
         // i = the index of the selected row
         if (updSch != null && updSch.isShowing()) {
             updSch.dispose();
@@ -464,9 +467,9 @@ public class ScheduleManagementPage extends JFrame{
                     "Please Select row to be Deleted !");
         }
 
-    }                                         
+    }
 
-    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {
         // Button for Book and Confirm Selection
         int i = schTable.getSelectedRow();
         if (i >= 0) {
@@ -504,6 +507,9 @@ public class ScheduleManagementPage extends JFrame{
                 data[8] = schRowData[5];
                 if (Main.functionL2 == "BOOK") {
                     bap.setScheduleData(schRowData);
+                    if (Main.access == "PERSONNEL") {
+                        this.setVisible(false);
+                    }
                 } else if (Main.functionL2 == "UPDATE") {
                     bap.setAppointmentData(data);
                     dispose();
@@ -514,13 +520,25 @@ public class ScheduleManagementPage extends JFrame{
 
             JOptionPane.showMessageDialog(this, "Please Select row to be Updated !");
         }
-    }                                       
+    }
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
-        // TODO back to appointment page & 
-        //      back to main personnel page
-    }                                       
+        if (Main.access == "PERSONNEL" && Main.functionL1 == "SCH") {
+            PersonnelMainPage pmpA = new PersonnelMainPage();
+            pmpA.setVisible(true);
+        } else if (Main.access == "PERSONNEL" && Main.functionL1 == "APPMT") {
+            AppointmentManagementPage apmt = new AppointmentManagementPage();
+            if (apmt != null && apmt.isShowing()) {
+                apmt.dispose();
+                apmt.setVisible(true);
+            }
+        } else if (Main.access == "PEOPLE") {
+            PeopleMainPage pmpB = new PeopleMainPage();
+            pmpB.setVisible(true);
+
+        }
+    }
 
     public void setPeopleData(int appmtIdToUpdate, String IC, String lastName, String firstName) {
         this.appmtIdToUpdate = appmtIdToUpdate;

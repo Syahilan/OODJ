@@ -51,7 +51,9 @@ public class BookAppointmentPage extends JFrame {
         btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
         setLocationByPlatform(true);
+        setResizable(false);
 
         title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         title.setForeground(new java.awt.Color(0, 51, 204));
@@ -69,12 +71,12 @@ public class BookAppointmentPage extends JFrame {
         lblTime.setText("Time");
 
         lblVac.setText("Vaccine");
-        
-        dash.setText("  -");
-        
+
         lName.setEditable(false);
-        
+
         fName.setEditable(false);
+
+        dash.setText("  -");
 
         btnUpd.setBackground(new java.awt.Color(153, 255, 153));
         btnUpd.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -317,7 +319,6 @@ public class BookAppointmentPage extends JFrame {
     }
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
-
         String message1 = "Confirm Save records to File ?";
         String message2 = "Operation Cancelled: No Records Saved !";
         String message3 = "Records Saved Successfully !";
@@ -330,6 +331,7 @@ public class BookAppointmentPage extends JFrame {
             message4 = "ERROR: No Booking Made !";
         }
 
+//        "Operation Cancelled: No Appointment Made !";
         if (Main.functionL2 == "BOOK") {
             // Check registered person
             People personDetails = DataIO.checkPeople("", "", "", IC.getText());
@@ -409,7 +411,7 @@ public class BookAppointmentPage extends JFrame {
             JOptionPane.showMessageDialog(btnCancel,
                     " Appointment Update Cancelled !");
         }
-        dispose();
+        this.dispose();
     }
 
     private void vacStatusActionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,15 +419,15 @@ public class BookAppointmentPage extends JFrame {
     }
 
     public void setScheduleData(String[] data) {
-//        if(Main.access == "PEOPLE"){
-//            IC.setText(Main.loginPeo.);
-//            IC.setEditable(false);
-//            lName.setText(Main.loginPeo.);
-//            lName.setEditable(false);
-//            fName.setText(Main.loginPeo.);
-//            fName.setEditable(false);
-//            
-//        }
+        if (Main.access == "PEOPLE") {
+            IC.setText(Main.loginPeo.getIdentityTxt());
+            IC.setEditable(false);
+            lName.setText(Main.loginPeo.getLastname());
+            lName.setEditable(false);
+            fName.setText(Main.loginPeo.getFirstname());
+            fName.setEditable(false);
+
+        }
 
         centre.setText(data[1]);
         centre.setEditable(false);
@@ -499,4 +501,5 @@ public class BookAppointmentPage extends JFrame {
     // End of variables declaration                   
 
     private int appmtId;
+    ScheduleManagementPage schM = new ScheduleManagementPage();
 }

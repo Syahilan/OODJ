@@ -62,7 +62,10 @@ public class AppointmentManagementPage extends JFrame {
         btnUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
         setLocationByPlatform(true);
+        setResizable(false);
+
 
         queryPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -72,7 +75,7 @@ public class AppointmentManagementPage extends JFrame {
         title.setPreferredSize(new java.awt.Dimension(270, 29));
         if (Main.access == "PERSONNEL") {
             title.setText("Appointment Managament");
-        } else {
+        } else if (Main.access == "PEOPLE"){
             title.setText("My Appointment");
         }
 
@@ -92,7 +95,7 @@ public class AppointmentManagementPage extends JFrame {
 
         fName.setMinimumSize(new java.awt.Dimension(127, 22));
         fName.setPreferredSize(new java.awt.Dimension(127, 22));
-
+        
         lblCentre.setText("Centre");
 
         lblVac.setText("Vaccine");
@@ -104,13 +107,12 @@ public class AppointmentManagementPage extends JFrame {
 
         startDate.setEditable(false);
         startDate.setToolTipText("Start Date");
-        
+
         if (Main.access == "PEOPLE") {
             ic.setText(Main.loginPeo.getIdentityTxt());
             lName.setText(Main.loginPeo.getLastname());
             fName.setText(Main.loginPeo.getFirstname());
         }
-
 
         
         ImageIcon calIcon = null;
@@ -454,11 +456,9 @@ public class AppointmentManagementPage extends JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
         String message = "Confirm Delete Records ?";
         String message2 = "Record Deleted ! Click on 'Save' button to update file.";
-String message3 = "Operation Cancelled: No Records Deleted !";
         if(Main.access == "PEOPLE"){
             message = "Confirm Cancellation ?";
             message2 = "Appointment Canceled ! Click on 'Save'.";
-		message3 = "No Cancellation !";
         }
         
         // i = the index of the selected row
@@ -478,7 +478,7 @@ String message3 = "Operation Cancelled: No Records Deleted !";
                 AppointmentIO.allAppointments.remove((int) rowIndexes.get(row));
                 JOptionPane.showMessageDialog(this, message2);
             } else {
-                JOptionPane.showMessageDialog(this, message3 );
+                JOptionPane.showMessageDialog(this, "Operation Cancelled: No Records Deleted !");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Please Select row to be Deleted !");
@@ -528,21 +528,17 @@ String message3 = "Operation Cancelled: No Records Deleted !";
             Date de = (eDate == "") ? Util.str2Date("31/12/4000", "dd/MM/yyyy")
                     : Util.str2Date(eDate, "E, dd/MM/yyyy");
 
-//            if (Main.access == "PEOPLE") {
-//                String lastN = ;
-//
-//                String firstN = ;
-//
-//                String pIc = ;
-//            
-//                
-//            } else {
             String lastN = lName.getText();
 
             String firstN = fName.getText();
 
             String pIc = ic.getText();
-//            }
+
+            if (Main.access == "PEOPLE") {
+                ic.setText(Main.loginPeo.getIdentityTxt());
+                lName.setText(Main.loginPeo.getLastname());
+                fName.setText(Main.loginPeo.getFirstname());
+            }
 
             model.setRowCount(0);
 
@@ -582,7 +578,7 @@ String message3 = "Operation Cancelled: No Records Deleted !";
         }
     }
 
-   private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
         PeopleMainPage pmpB = new PeopleMainPage();
         if (Main.access == "PERSONNEL") {

@@ -60,8 +60,10 @@ public class PersonnelManagePeoplePage extends JFrame{
         jTable1 = new JTable();
         DeleteUserBut = new JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Covid Vaccine Management System (CVMS)");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
+        setLocationByPlatform(true);
+        setResizable(false);
         setName("PersonnelManagePeoplePage");
 
         jLabel1.setFont(new java.awt.Font("Sans Serif", 1, 30)); // NOI18N

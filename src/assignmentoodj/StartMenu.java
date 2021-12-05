@@ -55,16 +55,18 @@ public class StartMenu extends JFrame implements ActionListener {
     
         
         // Title set for the Start Menu
-        setTitle("Covid Vaccine Management System (CVMS)");
+        setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
+
         
         // TODO: ICON IMAGE CHANGE
         //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("your image here")));
         
-        setSize(500, 300);
+        setSize(600, 200);
         
         //setLocation(700, 200);
         setLocationRelativeTo(null);                    // This will set JFrame in the middle
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
         setLayout(new FlowLayout());
 
         //Buttons

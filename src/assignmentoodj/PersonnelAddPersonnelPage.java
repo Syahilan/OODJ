@@ -92,8 +92,10 @@ public class PersonnelAddPersonnelPage extends JFrame{
         jDatePicker1.getModel().setDate(getYear(setDate),getMonth(setDate),getDay(setDate));
         jDatePicker1.getModel().setSelected(true);
         
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Covid Vaccine Management System (CVMS)");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
+        setLocationByPlatform(true);
+        setResizable(false);
         setName("PersonnelAddPersonnelPage");
 
         BackBut.setBackground(new java.awt.Color(255, 0, 0));
