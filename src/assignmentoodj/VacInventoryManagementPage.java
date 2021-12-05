@@ -122,7 +122,7 @@ public class VacInventoryManagementPage extends JFrame implements
     private JButton btnAddVac, iconButton, btnDelete, btnUpdate, btnSave,
             btnUpdAdd, btnUpdRem;
     private JComboBox centre, vName;
-    private JLabel lblCentre, lblVac, lblQnt;
+    private JLabel lblCentre, lblVac, lblQnt, lblTitle, lblSCrit;
     private JTable table;
     private JTextField c, v, q;
 
@@ -137,15 +137,15 @@ public class VacInventoryManagementPage extends JFrame implements
 
     // Label position
     private int lPosX = 60;
-    private int lPosY = 30;
+    private int lPosY = 80;
 
     // Field position
     private int fPosX = 130;
-    private int fPosY = 28;
+    private int fPosY = 78;
 
     // Button position
     private int bPosX = 600;
-    private int bPosY = 80;
+    private int bPosY = 130;
 
     private String[] updData = new String[NB_COL + 1];
 
@@ -159,11 +159,20 @@ public class VacInventoryManagementPage extends JFrame implements
          * Initialize the contents of the query criteria frame.
          */
         queryFrame = new JFrame("Vaccine Management");
-        queryFrame.setBounds(600, 300, pWidth, 300);
+        queryFrame.setBounds(600, 250, pWidth, 300);
         queryFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel p = new JPanel();
         p.setLayout(null);
+
+        lblTitle = new JLabel("Manage Vaccine Stock");
+        lblTitle.setBounds(lPosX + 215, lPosY - 50, 300, 30);
+        lblTitle.setForeground(Color.BLUE);
+        lblTitle.setFont(new Font("", Font.BOLD, 20));
+
+        lblSCrit = new JLabel("Search Criteria:");
+        lblSCrit.setBounds(lPosX, lPosY - 10, 300, 30);
+        lblSCrit.setFont(new Font("", Font.BOLD, 15));
 
         btnAddVac = new JButton("Allocate vaccine");
         btnAddVac.setBounds(bPosX - 100, bPosY + 10, 200, 25);
@@ -220,6 +229,8 @@ public class VacInventoryManagementPage extends JFrame implements
         p.add(lblVac);
         p.add(vName);
         p.add(iconButton);
+        p.add(lblTitle);
+        p.add(lblSCrit);
         // Add panel to frame
         queryFrame.add(p);
         queryFrame.setVisible(false);
@@ -258,9 +269,9 @@ public class VacInventoryManagementPage extends JFrame implements
         btnUpdate = new JButton("Update");
         btnSave = new JButton("Save");
 
-        btnUpdate.setBounds(bPosX, bPosY + 60, 100, 25);
-        btnDelete.setBounds(bPosX, bPosY + 100, 100, 25);
-        btnSave.setBounds(bPosX, bPosY + 140, 100, 25);
+        btnUpdate.setBounds(bPosX, bPosY + 10, 100, 25);
+        btnDelete.setBounds(bPosX, bPosY + 45, 100, 25);
+        btnSave.setBounds(bPosX, bPosY + 80, 100, 25);
 
         // adding it to JScrollPane //
         JScrollPane sp = new JScrollPane(table);
@@ -326,33 +337,33 @@ public class VacInventoryManagementPage extends JFrame implements
         updFrame.setLayout(null);
 
         lblCentre = new JLabel("Centre");
-        lblCentre.setBounds(lPosX, lPosY, 100, 14);
+        lblCentre.setBounds(lPosX, lPosY - 50, 100, 14);
 
         c = new JTextField();
-        c.setBounds(fPosX, fPosY, 200, 20);
+        c.setBounds(fPosX, fPosY - 50, 200, 20);
         c.setText(data[1]);
         c.setEditable(false);
 
         lblVac = new JLabel("Vaccine");
-        lblVac.setBounds(lPosX, lPosY + 30, 60, 14);
+        lblVac.setBounds(lPosX, lPosY - 10, 60, 14);
 
         v = new JTextField();
-        v.setBounds(fPosX, fPosY + 30, 90, 20);
+        v.setBounds(fPosX, fPosY - 10, 90, 20);
         v.setText(data[2]);
         v.setEditable(false);
 
         lblQnt = new JLabel("Quantity");
-        lblQnt.setBounds(lPosX, lPosY + 60, 60, 14);
+        lblQnt.setBounds(lPosX, lPosY + 40, 60, 14);
 
         q = new JTextField();
-        q.setBounds(fPosX, fPosY + 60, 90, 20);
+        q.setBounds(fPosX, fPosY + 40, 90, 20);
 //        q.setColumns(10);
 
         btnUpdAdd = new JButton("Add");
         btnUpdRem = new JButton("Remove");
 
-        btnUpdAdd.setBounds(lPosX + 300, lPosY + 60, 90, 20);
-        btnUpdRem.setBounds(lPosX + 400, lPosY + 60, 90, 20);
+        btnUpdAdd.setBounds(lPosX + 300, lPosY + 40, 90, 20);
+        btnUpdRem.setBounds(lPosX + 400, lPosY + 40, 90, 20);
 
         btnUpdAdd.addActionListener(this);
         btnUpdRem.addActionListener(this);
@@ -384,7 +395,7 @@ public class VacInventoryManagementPage extends JFrame implements
                         + supply.getQuantity() + "]!");
             } else if (newSup >= 0) {
                 model.setValueAt(newSup, i, 3);
-                // Update quantiy
+                // Update quantity
                 supply.setQuantity(newSup);
                 // Update array of buffered file records
                 VaccineInventoryIO.allVacSupplies.set((int) rowIndexes.get(i),
@@ -397,5 +408,6 @@ public class VacInventoryManagementPage extends JFrame implements
                         "Error during update and refresh of displayed table !");
             }
         }
+
     }
 }

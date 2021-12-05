@@ -187,7 +187,12 @@ public class PeopleMainPage extends JFrame{
 
     private void bookAppointmentButActionPerformed(java.awt.event.ActionEvent evt) {                                            
         this.setVisible(false);
-        // LINK TO The Book an Appointment Page HERE! 
+//        Main.functionL1 = "APPMT";
+//        Main.access = "PEOPLE";
+//        Main.functionL2 = "BOOK";
+//        ScheduleManagementPage sch = new ScheduleManagementPage();
+//        sch.setVisible(true);
+
         
         
         
@@ -195,7 +200,11 @@ public class PeopleMainPage extends JFrame{
 
     private void ManageAppointmentButActionPerformed(java.awt.event.ActionEvent evt) {                                            
         this.setVisible(false);
-        // LINK TO The Manage Appointment Page HERE!
+//        Main.functionL1 = "APPMT";
+//        Main.access = "PEOPLE";
+//        AppointmentManagementPage appmt = new AppointmentManagementPage();
+//        appmt.setVisible(true);
+
         
     }                                           
 

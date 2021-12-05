@@ -50,5 +50,26 @@ public class VaccineSupply {
         this.quantity = quantity;
     }
 
+    public static int searchVaccineRecord(String centre, String vacName) {
+        for (int i = 0; i < VaccineInventoryIO.allVacSupplies.size(); i++) {
+            VaccineSupply vs = VaccineInventoryIO.allVacSupplies.get(i);
+            // Check if vaccine exists at centre
+            if (centre.equals(vs.getCentre()) && vacName.equals(vs.getVacName())) {
+                return i;
+            }
+        }
+        // No such vaccine at centre
+        return -1;
+    }
+
+    public static void updateVaccineRecord(VaccineSupply vs) {
+        int vsInd = searchVaccineRecord(vs.getCentre(), vs.getVacName());
+        // Retrieve original vaccine from buffered records
+        VaccineSupply v = VaccineInventoryIO.allVacSupplies.get(vsInd);
+        // Update vaccine inventory
+        v.setQuantity(vs.getQuantity());
+        // Update array of buffered file records
+        VaccineInventoryIO.allVacSupplies.set(vsInd, v);
+    }
 }
 

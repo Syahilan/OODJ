@@ -25,7 +25,7 @@ public class AppointmentIO {
             Scanner readAppFile = new Scanner(new File("Appointment.txt"));
             while (readAppFile.hasNext()) {
                 int aId = Integer.parseInt(readAppFile.nextLine());
-                String IC = readAppFile.nextLine();
+                String IC = readAppFile.nextLine() ;
                 String lname = readAppFile.nextLine();
                 String fname = readAppFile.nextLine();
                 String centre = readAppFile.nextLine();
@@ -33,8 +33,9 @@ public class AppointmentIO {
                 String sTime = readAppFile.nextLine();
                 String eTime = readAppFile.nextLine();
                 String name = readAppFile.nextLine();
+                String status = readAppFile.nextLine();
                 readAppFile.nextLine();
-                Appointment a = new Appointment(aId, IC, lname, fname, centre, date, sTime, eTime, name);
+                Appointment a = new Appointment(aId, IC, lname, fname, centre, date, sTime, eTime,  name, status);
                 allAppointments.add(a);
             }
         } catch (FileNotFoundException e) {
@@ -62,6 +63,7 @@ public class AppointmentIO {
                 writeAppFile.println(allAppointments.get(i).getStartTime());
                 writeAppFile.println(allAppointments.get(i).getEndTime());
                 writeAppFile.println(allAppointments.get(i).getVacName());
+                writeAppFile.println(allAppointments.get(i).getStatus());
                 writeAppFile.println();
             }
             writeAppFile.close();
