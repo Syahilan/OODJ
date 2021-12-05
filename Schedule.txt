@@ -1,0 +1,56 @@
+20001
+CentreA
+Wed, 01/12/2021
+09:00
+17:00
+Moderna
+200
+
+20002
+CentreB
+Wed, 01/12/2021
+09:00
+15:00
+Janssen
+200
+
+20003
+CentreC
+Thu, 02/12/2021
+08:00
+18:00
+AstraZeneca
+400
+
+20004
+CentreE
+Fri, 03/12/2021
+09:00
+15:00
+Sinovac
+200
+
+20005
+CentreA
+Thu, 02/12/2021
+09:00
+15:00
+Moderna
+100
+
+20006
+CentreA
+Sun, 05/12/2021
+09:00
+15:00
+Sinovac
+2
+
+20007
+CentreA
+Thu, 16/12/2021
+09:00
+17:00
+Janssen
+4
+
