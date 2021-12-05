@@ -218,7 +218,8 @@ public class PeopleMainPage extends JFrame {
                                     
      private void ViewStatusButActionPerformed(java.awt.event.ActionEvent evt){
          this.setVisible(false);
-         // LINK TO The View Vaccine Status Page HERE!
+         VaccinationStatusPage vStat = new VaccinationStatusPage();
+         vStat.setVisible(true);
          
          
      }
