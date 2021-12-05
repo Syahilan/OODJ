@@ -69,38 +69,12 @@ public class BookAppointmentPage extends JFrame {
         lblTime.setText("Time");
 
         lblVac.setText("Vaccine");
-
-        centre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                centreActionPerformed(evt);
-            }
-        });
-
-        date.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateActionPerformed(evt);
-            }
-        });
-
-        vac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vacActionPerformed(evt);
-            }
-        });
-
-        startTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                startTimeActionPerformed(evt);
-            }
-        });
-
-        endTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                endTimeActionPerformed(evt);
-            }
-        });
-
+        
         dash.setText("  -");
+        
+        lName.setEditable(false);
+        
+        fName.setEditable(false);
 
         btnUpd.setBackground(new java.awt.Color(153, 255, 153));
         btnUpd.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -334,26 +308,6 @@ public class BookAppointmentPage extends JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void centreActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void dateActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void vacActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void startTimeActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void endTimeActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
     private void btnUpdActionPerformed(java.awt.event.ActionEvent evt) {
         // Change Schdedule button action
         ScheduleManagementPage sch = new ScheduleManagementPage();
@@ -363,23 +317,65 @@ public class BookAppointmentPage extends JFrame {
     }
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println(Main.functionL2);
-        int reply = JOptionPane.showConfirmDialog(null,
-                "Confirm Save records to File ?", "WARNING",
-                JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION) {
-            if (Main.functionL2 == "BOOK") {
-                int size = AppointmentIO.allAppointments.size();
-                int id = 50001;
-                if (size > 0) {
-                    id = AppointmentIO.allAppointments.get(size - 1).getaId() + 1;
+
+        String message1 = "Confirm Save records to File ?";
+        String message2 = "Operation Cancelled: No Records Saved !";
+        String message3 = "Records Saved Successfully !";
+        String message4 = "ERROR: No Records Saved !";
+
+        if (Main.access == "PEOPLE") {
+            message1 = "Confirm Booking ?";
+            message2 = "Operation Cancelled: No Booking Made !";
+            message3 = "Booking Successfully !";
+            message4 = "ERROR: No Booking Made !";
+        }
+
+        if (Main.functionL2 == "BOOK") {
+            // Check registered person
+            People personDetails = DataIO.checkPeople("", "", "", IC.getText());
+            if (personDetails == null) {
+                JOptionPane.showMessageDialog(btnConfirm, "Person not found!");
+            } else {
+                int reply = JOptionPane.showConfirmDialog(null,
+                        message1, "WARNING",
+                        JOptionPane.YES_NO_OPTION);
+
+                if (reply == JOptionPane.YES_OPTION) {
+                    int size = AppointmentIO.allAppointments.size();
+                    int id = 50001;
+                    if (size > 0) {
+                        id = AppointmentIO.allAppointments.get(size - 1).getaId() + 1;
+                    }
+                    lName.setText(personDetails.getLastname());
+
+                    fName.setText(personDetails.getFirstname());
+
+                    Appointment a = new Appointment(id, IC.getText(),
+                            lName.getText(), fName.getText(), centre.getText(),
+                            date.getText(), startTime.getText(),
+                            endTime.getText(), vac.getText(), "");
+                    AppointmentIO.allAppointments.add(a);
+                } else {
+                    JOptionPane.showMessageDialog(this, message2);
                 }
-                Appointment a = new Appointment(id, IC.getText(),
-                        lName.getText(), fName.getText(), centre.getText(),
-                        date.getText(), startTime.getText(),
-                        endTime.getText(), vac.getText(), "");
-                AppointmentIO.allAppointments.add(a);
-            } else if (Main.functionL2 == "UPDATE") {
+
+                // Save to file
+                if (AppointmentIO.write() == 0) {
+                    JOptionPane.showMessageDialog(this, message3);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, message4);
+                }
+
+            }
+        }
+
+        if (Main.functionL2 == "UPDATE") {
+            int reply = JOptionPane.showConfirmDialog(null,
+                    "Confirm Save records to File ?", "WARNING",
+                    JOptionPane.YES_NO_OPTION);
+
+            if (reply == JOptionPane.YES_OPTION) {
                 String status = (vacStatus.getSelectedIndex() == -1) ? "" : vacStatus.getSelectedItem().toString();
                 Appointment appmt = new Appointment();
                 appmt.setaId(appmtId);
@@ -391,16 +387,17 @@ public class BookAppointmentPage extends JFrame {
                 appmt.setStatus(status);
                 System.out.println(status);
                 Appointment.updateAppointmentRecord(appmt);
+            } else {
+                JOptionPane.showMessageDialog(this, "Operation Cancelled: No Records Saved !");
+
             }
             // Save to file
             if (AppointmentIO.write() == 0) {
                 JOptionPane.showMessageDialog(this, "Records Saved Successfully !");
-                dispose();
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "ERROR: No Records Saved !");
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "Operation Cancelled: No Records Saved !");
         }
     }
 

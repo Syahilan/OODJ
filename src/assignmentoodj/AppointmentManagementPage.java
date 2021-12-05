@@ -104,6 +104,13 @@ public class AppointmentManagementPage extends JFrame {
 
         startDate.setEditable(false);
         startDate.setToolTipText("Start Date");
+        
+        if (Main.access == "PEOPLE") {
+            ic.setText(Main.loginPeo.getIdentityTxt());
+            lName.setText(Main.loginPeo.getLastname());
+            fName.setText(Main.loginPeo.getFirstname());
+        }
+
 
         
         ImageIcon calIcon = null;
@@ -445,6 +452,15 @@ public class AppointmentManagementPage extends JFrame {
     }
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
+        String message = "Confirm Delete Records ?";
+        String message2 = "Record Deleted ! Click on 'Save' button to update file.";
+String message3 = "Operation Cancelled: No Records Deleted !";
+        if(Main.access == "PEOPLE"){
+            message = "Confirm Cancellation ?";
+            message2 = "Appointment Canceled ! Click on 'Save'.";
+		message3 = "No Cancellation !";
+        }
+        
         // i = the index of the selected row
         if (bap != null && bap.isShowing()) {
             bap.dispose();
@@ -452,7 +468,7 @@ public class AppointmentManagementPage extends JFrame {
         int i = appTable.getSelectedRow();
         if (i >= 0) {
             int reply = JOptionPane.showConfirmDialog(this,
-                    "Confirm Delete Records ?", "WARNING",
+                    message, "WARNING",
                     JOptionPane.YES_NO_OPTION);
             if (reply == JOptionPane.YES_OPTION) {
                 // remove a row from jtable
@@ -460,9 +476,9 @@ public class AppointmentManagementPage extends JFrame {
                 model.removeRow(row);
                 // Delete row from array of buffered file records
                 AppointmentIO.allAppointments.remove((int) rowIndexes.get(row));
-                JOptionPane.showMessageDialog(this, "Record Deleted ! Click on 'Save' button to update file.");
+                JOptionPane.showMessageDialog(this, message2);
             } else {
-                JOptionPane.showMessageDialog(this, "Operation Cancelled: No Records Deleted !");
+                JOptionPane.showMessageDialog(this, message3 );
             }
         } else {
             JOptionPane.showMessageDialog(this, "Please Select row to be Deleted !");
@@ -566,9 +582,15 @@ public class AppointmentManagementPage extends JFrame {
         }
     }
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {
+   private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
-        //add code to return to main page
+        PeopleMainPage pmpB = new PeopleMainPage();
+        if (Main.access == "PERSONNEL") {
+            PersonnelMainPage pmpA = new PersonnelMainPage();
+            pmpA.setVisible(true);
+        }else if ((Main.access == "PEOPLE"))
+            pmpB.setVisible(true);
+
 
     }
 
@@ -583,19 +605,30 @@ public class AppointmentManagementPage extends JFrame {
     }
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {
+        String message = "Confirm Save records to File ?";
+        String message2 = "Records Saved Successfully !";
+        String message3 = "ERROR: No Records Saved !";
+        String message4 = "Operation Cancelled: No Records Saved !";
+        if (Main.access == "PEOPLE") {
+            message = "Confirm Save ?";
+            message2 = "Appointment Canceled Successfully !";
+            message3 = "ERROR: Save failed ! ";
+            message4 = "Operation Cancelled !";
+        }
+
         int reply = JOptionPane.showConfirmDialog(this,
-                "Confirm Save records to File ?", "WARNING",
+                message, "WARNING",
                 JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION) {
             // Save to file
             if (AppointmentIO.write() == 0) {
-                JOptionPane.showMessageDialog(this, "Records Saved Successfully !");
+                JOptionPane.showMessageDialog(this, message2);
                 btnSearch.doClick();
             } else {
-                JOptionPane.showMessageDialog(this, "ERROR: No Records Saved !");
+                JOptionPane.showMessageDialog(this, message3);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Operation Cancelled: No Records Saved !");
+            JOptionPane.showMessageDialog(this,  message4 );
         }
     }
 

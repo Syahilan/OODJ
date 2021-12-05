@@ -109,6 +109,11 @@ public class VacInventoryManagementPage extends JFrame implements
                 JOptionPane.showMessageDialog(tableFrame,
                         "Operation Cancelled: No Records Saved !");
             }
+        } else if (e.getSource() == btnBack) {
+            queryFrame.setVisible(false);
+            PersonnelMainPage pmp = new PersonnelMainPage();
+            pmp.setVisible(true);
+
         }
 
     }
@@ -120,7 +125,7 @@ public class VacInventoryManagementPage extends JFrame implements
 
     private JFrame tableFrame, updFrame;
     private JButton btnAddVac, iconButton, btnDelete, btnUpdate, btnSave,
-            btnUpdAdd, btnUpdRem;
+            btnUpdAdd, btnUpdRem, btnBack;
     private JComboBox centre, vName;
     private JLabel lblCentre, lblVac, lblQnt, lblTitle, lblSCrit;
     private JTable table;
@@ -133,7 +138,7 @@ public class VacInventoryManagementPage extends JFrame implements
     private ArrayList<Integer> rowIndexes;
 
     // Pane / Frame width
-    private int pWidth = 800;
+    private int pWidth = 780;
 
     // Label position
     private int lPosX = 60;
@@ -160,10 +165,15 @@ public class VacInventoryManagementPage extends JFrame implements
          */
         queryFrame = new JFrame("Vaccine Management");
         queryFrame.setBounds(600, 250, pWidth, 300);
-        queryFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        queryFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         JPanel p = new JPanel();
         p.setLayout(null);
+
+        btnBack = new JButton("<< Back");
+        btnBack.setBounds(lPosX - 5, lPosY - 60, 100, 25);
+        btnBack.addActionListener(this);
+        p.add(btnBack);
 
         lblTitle = new JLabel("Manage Vaccine Stock");
         lblTitle.setBounds(lPosX + 215, lPosY - 50, 300, 30);
@@ -316,15 +326,21 @@ public class VacInventoryManagementPage extends JFrame implements
 
         tableFrame.setVisible(true);
 
-        // get selected row data From table to display
+// get selected row data From table to display
         table.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                // i = the index of the selected row
-                int i = table.getSelectedRow();
-                for (int j = 0; j < NB_COL; j++) {
-                    updData[j] = table.getValueAt(i, j).toString();
+                try {
+                    // i = the index of the selected row
+                    int i = table.getSelectedRow();
+                    for (int j = 0; j < NB_COL; j++) {
+                        updData[j] = table.getValueAt(i, j).toString();
+                    }
+                    updData[NB_COL] = String.valueOf(i);
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(tableFrame,
+                            "ERROR: Please try again !");
                 }
-                updData[NB_COL] = String.valueOf(i);
             }
         });
     }
@@ -383,10 +399,11 @@ public class VacInventoryManagementPage extends JFrame implements
     private void updateVaccineSupply(int quantity) {
         // i = the index of the selected row
         int i = Integer.parseInt(updData[NB_COL]);
-        if (i >= 0 && quantity > 0) {
+        if (i >= 0) {
             // Retrieve original supply from buffered records
             VaccineSupply supply = VaccineInventoryIO.allVacSupplies
                     .get((int) rowIndexes.get(i));
+
             int newSup = supply.getQuantity() + quantity;
             if (newSup < 0) {
                 JOptionPane.showMessageDialog(
@@ -397,6 +414,7 @@ public class VacInventoryManagementPage extends JFrame implements
                 model.setValueAt(newSup, i, 3);
                 // Update quantity
                 supply.setQuantity(newSup);
+
                 // Update array of buffered file records
                 VaccineInventoryIO.allVacSupplies.set((int) rowIndexes.get(i),
                         supply);
