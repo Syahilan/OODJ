@@ -5,6 +5,7 @@
  */
 package assignmentoodj;
 
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
@@ -205,8 +206,21 @@ public class ReportPage extends JFrame {
     public void displayGenderReport(){
         //Syahilan ADD YOUR CODE HERE
     }
-    
+
     public void displayAgeReport() {
+        ReportAgeData.processAgeReportDate();
+        // create an array of objects to set the row data
+        final Object[] data = new Object[NB_COL_AGE];
+
+        ArrayList<ReportAgeData> ageReport = new ArrayList<ReportAgeData>();
+        ageReport = ReportAgeData.allAgeReport;
+
+        for (int j = 0; j < NB_ROW_AGE; j++) {
+            data[0] = ageReport.get(j).getAgeMax() == 9999 ? ">= " + ageReport.get(j).getAgeMin() : +ageReport.get(j).getAgeMin() + " - " + ageReport.get(j).getAgeMax();
+            data[1] = ageReport.get(j).getVacStatus();
+            data[2] = ageReport.get(j).getCount();
+            model2.addRow(data);
+        }
     }
 
     
@@ -235,7 +249,5 @@ public class ReportPage extends JFrame {
     
     // No of rows in age table data to be displayed
     private static final int NB_ROW_AGE = 16;
-    
-    int ageVacCount = 0;
-    int ageUnvacCount = 0;
+
 }

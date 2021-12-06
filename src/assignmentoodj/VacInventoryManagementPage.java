@@ -167,14 +167,13 @@ public class VacInventoryManagementPage extends JFrame implements
         /**
          * Initialize the contents of the query criteria frame.
          */
-        queryFrame = new JFrame("Vaccine Management");
+        queryFrame = new JFrame();
         queryFrame.setSize(pWidth, 300);
         queryFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         queryFrame.setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
         queryFrame.setLocationByPlatform(true);
         queryFrame.setLocationRelativeTo(null);
         queryFrame.setResizable(false);
-        queryFrame.setLayout(null);
 
         JPanel p = new JPanel();
         p.setLayout(null);
@@ -232,9 +231,6 @@ public class VacInventoryManagementPage extends JFrame implements
                     + iconFile + " not found !");
         }
 
-        /**
-         *
-         */
         // Create icon button
         iconButton = new JButton(srchIcon);
         iconButton.setToolTipText("Search");
@@ -258,14 +254,14 @@ public class VacInventoryManagementPage extends JFrame implements
 
     private void displayTable(String cent, String vac) {
         // create JFrame and JTable
-        tableFrame = new JFrame("LIST OF VACCINE IN STOCK");
+        tableFrame = new JFrame();
+        tableFrame.setLayout(null);
         tableFrame.setSize(pWidth, 300);
         tableFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tableFrame.setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
-        tableFrame.setLocationByPlatform(true);
-        tableFrame.setLocationRelativeTo(null);
+//        tableFrame.setLocationByPlatform(true);
+        tableFrame.setLocationRelativeTo(queryFrame);
         tableFrame.setResizable(false);
-        tableFrame.setLayout(null);
 
         table = new JTable();
         Object[] columns = {"ID", "CENTRE", "VACCINE", "QUANTITY"};
