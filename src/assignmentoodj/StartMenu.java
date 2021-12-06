@@ -10,59 +10,50 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
-
 public class StartMenu extends JFrame implements ActionListener {
 
-    
-    
     public void actionPerformed(ActionEvent e) {
-        
+
         if (e.getSource() == Personnel) {
-            
+
             //Go to Personnel Login Page
             setVisible(false);
             PersonnelLoginPage personnelLogin = new PersonnelLoginPage();
             personnelLogin.setVisible(true);
-            
-           
 
-        } else if (e.getSource() == People){
-        
+        } else if (e.getSource() == People) {
+
             //Go to People Login Page
             setVisible(false);
             PeopleLoginPage peopleLogin = new PeopleLoginPage();
             peopleLogin.setVisible(true);
 
         } else if (e.getSource() == RegAccount) {
-            
+
             //Go to New User Registration Page
             setVisible(false);
             StartMenuRegistrationPage peopleSelfRegis = new StartMenuRegistrationPage();
             peopleSelfRegis.setVisible(true);
-            
+
         } else if (e.getSource() == Exit) {
 
             // Exit the program.
             System.exit(0);
         }
-        
-        
+
     }
 
     private Button Personnel, People, Exit, RegAccount;
-    
+
     public StartMenu() {
-    
-        
+
         // Title set for the Start Menu
         setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
 
-        
         // TODO: ICON IMAGE CHANGE
         //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("your image here")));
-        
         setSize(600, 200);
-        
+
         //setLocation(700, 200);
         setLocationRelativeTo(null);                    // This will set JFrame in the middle
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,9 +78,7 @@ public class StartMenu extends JFrame implements ActionListener {
         add(Exit);
         add(RegAccount);
         setVisible(true);
-        
-    
+
     }
-    
-    
+
 }

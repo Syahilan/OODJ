@@ -128,7 +128,7 @@ public class CreateVacInventoryPage extends JFrame implements ActionListener {
         // Add panel to frame
         frame.add(p);
 
-         frame.setVisible(false);
+        frame.setVisible(false);
     }
 
 }

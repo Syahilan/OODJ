@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is proprietary code written by Syahilan A/L Selvarajoo [TP062031] & Darshini Dakshyani Beerachee [TP060519]
+ * APD2F2109CS(DA) || CT038-3-2-OODJ-LAB-18
  */
 package assignmentoodj;
 
@@ -11,15 +10,13 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author Darshini
- */
 public class ScheduleIO {
-        public static ArrayList<CentreSchedule> allSchedules
+
+    public static ArrayList<CentreSchedule> allSchedules
             = new ArrayList<CentreSchedule>();
-        public static void read(){
-        try{
+
+    public static void read() {
+        try {
             Scanner readSchFile = new Scanner(new File("Schedule.txt"));
             while (readSchFile.hasNext()) {
                 int sId = Integer.parseInt(readSchFile.nextLine());
@@ -30,25 +27,26 @@ public class ScheduleIO {
                 String name = readSchFile.nextLine();
                 int quantity = Integer.parseInt(readSchFile.nextLine());
                 readSchFile.nextLine();
-                CentreSchedule s = new CentreSchedule(sId, centre, date, sTime, eTime,  name, quantity);
+                CentreSchedule s = new CentreSchedule(sId, centre, date, sTime, eTime, name, quantity);
                 allSchedules.add(s);
             }
-            
-        } catch(FileNotFoundException e){
+
+        } catch (FileNotFoundException e) {
             System.out.println("File not found !");
-            try{
-            PrintWriter writeSchFile = new PrintWriter("Schedule.txt");
-            } catch(Exception ex){
-            System.out.println("Error in write!");
-        }
-            
-        } catch(Exception e){
+            try {
+                PrintWriter writeSchFile = new PrintWriter("Schedule.txt");
+            } catch (Exception ex) {
+                System.out.println("Error in write!");
+            }
+
+        } catch (Exception e) {
             System.out.println("Error in read!");
-          }
-        
+        }
+
     }
-    public static int write(){
-        try{         
+
+    public static int write() {
+        try {
             PrintWriter writeSchFile = new PrintWriter("Schedule.txt");
             for (int i = 0; i < allSchedules.size(); i++) {
                 writeSchFile.println(allSchedules.get(i).getsId());
@@ -61,7 +59,7 @@ public class ScheduleIO {
                 writeSchFile.println();
             }
             writeSchFile.close();
-        } catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Error in write!");
             return -1;
         }

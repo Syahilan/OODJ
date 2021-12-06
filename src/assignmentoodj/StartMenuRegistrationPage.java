@@ -358,7 +358,7 @@ public class StartMenuRegistrationPage extends JFrame {
             sysA = 40001 + DataIO.allPeople.size();
         } else if (DataIO.allPeople.size() > 0) {
             int size = DataIO.allPeople.size();
-            sysA = (DataIO.allPeople.get(size -1).getSystemNo()) + 1;
+            sysA = (DataIO.allPeople.get(size - 1).getSystemNo()) + 1;
         }
         String x1 = usernameTxt.getText().trim();
         String x2 = passwordTxt.getText().trim();

@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is proprietary code written by Syahilan A/L Selvarajoo [TP062031] & Darshini Dakshyani Beerachee [TP060519]
+ * APD2F2109CS(DA) || CT038-3-2-OODJ-LAB-18
  */
 package assignmentoodj;
 
@@ -18,10 +17,6 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-/**
- *
- * @author Darshini
- */
 public class AppointmentManagementPage extends JFrame {
 
     public AppointmentManagementPage() {
@@ -66,7 +61,6 @@ public class AppointmentManagementPage extends JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-
         queryPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         title.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -75,7 +69,7 @@ public class AppointmentManagementPage extends JFrame {
         title.setPreferredSize(new java.awt.Dimension(270, 29));
         if (Main.access == "PERSONNEL") {
             title.setText("Appointment Managament");
-        } else if (Main.access == "PEOPLE"){
+        } else if (Main.access == "PEOPLE") {
             title.setText("My Appointment");
         }
 
@@ -95,7 +89,7 @@ public class AppointmentManagementPage extends JFrame {
 
         fName.setMinimumSize(new java.awt.Dimension(127, 22));
         fName.setPreferredSize(new java.awt.Dimension(127, 22));
-        
+
         lblCentre.setText("Centre");
 
         lblVac.setText("Vaccine");
@@ -114,7 +108,6 @@ public class AppointmentManagementPage extends JFrame {
             fName.setText(Main.loginPeo.getFirstname());
         }
 
-        
         ImageIcon calIcon = null;
         String iconFile = "cal.jpg";
         java.net.URL imgURL = AppointmentManagementPage.class
@@ -125,8 +118,7 @@ public class AppointmentManagementPage extends JFrame {
             JOptionPane.showMessageDialog(this, "Icon image " + iconFile
                     + " not found !");
         }
-        
-        
+
         btnStartDate.setIcon(calIcon); // NOI18N
         btnStartDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -456,11 +448,11 @@ public class AppointmentManagementPage extends JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
         String message = "Confirm Delete Records ?";
         String message2 = "Record Deleted ! Click on 'Save' button to update file.";
-        if(Main.access == "PEOPLE"){
+        if (Main.access == "PEOPLE") {
             message = "Confirm Cancellation ?";
             message2 = "Appointment Canceled ! Click on 'Save'.";
         }
-        
+
         // i = the index of the selected row
         if (bap != null && bap.isShowing()) {
             bap.dispose();
@@ -584,9 +576,9 @@ public class AppointmentManagementPage extends JFrame {
         if (Main.access == "PERSONNEL") {
             PersonnelMainPage pmpA = new PersonnelMainPage();
             pmpA.setVisible(true);
-        }else if ((Main.access == "PEOPLE"))
+        } else if ((Main.access == "PEOPLE")) {
             pmpB.setVisible(true);
-
+        }
 
     }
 
@@ -624,7 +616,7 @@ public class AppointmentManagementPage extends JFrame {
                 JOptionPane.showMessageDialog(this, message3);
             }
         } else {
-            JOptionPane.showMessageDialog(this,  message4 );
+            JOptionPane.showMessageDialog(this, message4);
         }
     }
 

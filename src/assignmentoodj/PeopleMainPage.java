@@ -27,13 +27,11 @@ public class PeopleMainPage extends JFrame {
     private JLabel jLabel6;
     private JLabel jLabel8;
     // End of variables declaration     
-    
-    
-    
+
     public PeopleMainPage() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
@@ -125,68 +123,68 @@ public class PeopleMainPage extends JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LogOutBut, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(viewStatBut, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bookAppointBut)
-                            .addComponent(editDetailBut)
-                            .addComponent(manageAppointBut)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(0, 75, Short.MAX_VALUE)))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(LogOutBut, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(viewStatBut, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(bookAppointBut)
+                                                        .addComponent(editDetailBut)
+                                                        .addComponent(manageAppointBut)
+                                                        .addComponent(jLabel8)
+                                                        .addComponent(jLabel3)
+                                                        .addComponent(jLabel4)
+                                                        .addComponent(jLabel5)
+                                                        .addComponent(jLabel6))
+                                                .addGap(0, 75, Short.MAX_VALUE)))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LogOutBut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(16, 16, 16)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bookAppointBut)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(5, 5, 5)
-                .addComponent(manageAppointBut)
-                .addGap(19, 19, 19)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editDetailBut)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(viewStatBut)
-                .addContainerGap(193, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(LogOutBut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bookAppointBut)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel5)
+                                .addGap(5, 5, 5)
+                                .addComponent(manageAppointBut)
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editDetailBut)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(viewStatBut)
+                                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>
-    
-    private void LogOutButActionPerformed(java.awt.event.ActionEvent evt) {                                          
+
+    private void LogOutButActionPerformed(java.awt.event.ActionEvent evt) {
         Main.loginPeo = null;
         this.setVisible(false);
         StartMenu sm = new StartMenu();
         sm.setVisible(true);
-    }                                                                             
+    }
 
-    private void bookAppointmentButActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void bookAppointmentButActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
         Main.functionL1 = "APPMT";
         Main.access = "PEOPLE";
@@ -194,34 +192,28 @@ public class PeopleMainPage extends JFrame {
         ScheduleManagementPage sch = new ScheduleManagementPage();
         sch.setVisible(true);
 
-        
-        
-        
-    }                                           
+    }
 
-    private void ManageAppointmentButActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void ManageAppointmentButActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
         Main.functionL1 = "APPMT";
         Main.access = "PEOPLE";
         AppointmentManagementPage appmt = new AppointmentManagementPage();
         appmt.setVisible(true);
 
-        
-    }                                           
+    }
 
-    private void EditDetailButActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void EditDetailButActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
         // LINK TO The Edit my details Page HERE!
-        
-        
-    }                                              
-                                    
-     private void ViewStatusButActionPerformed(java.awt.event.ActionEvent evt){
-         this.setVisible(false);
-         VaccinationStatusPage vStat = new VaccinationStatusPage();
-         vStat.setVisible(true);
-         
-         
-     }
+
+    }
+
+    private void ViewStatusButActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);
+        VaccinationStatusPage vStat = new VaccinationStatusPage();
+        vStat.setVisible(true);
+
+    }
 
 }

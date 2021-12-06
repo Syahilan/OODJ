@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is proprietary code written by Syahilan A/L Selvarajoo [TP062031] & Darshini Dakshyani Beerachee [TP060519]
+ * APD2F2109CS(DA) || CT038-3-2-OODJ-LAB-18
  */
 package assignmentoodj;
 
@@ -11,10 +10,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author Darshini
- */
 public class AppointmentIO {
 
     public static ArrayList<Appointment> allAppointments
@@ -25,7 +20,7 @@ public class AppointmentIO {
             Scanner readAppFile = new Scanner(new File("Appointment.txt"));
             while (readAppFile.hasNext()) {
                 int aId = Integer.parseInt(readAppFile.nextLine());
-                String IC = readAppFile.nextLine() ;
+                String IC = readAppFile.nextLine();
                 String lname = readAppFile.nextLine();
                 String fname = readAppFile.nextLine();
                 String centre = readAppFile.nextLine();
@@ -35,7 +30,7 @@ public class AppointmentIO {
                 String name = readAppFile.nextLine();
                 String status = readAppFile.nextLine();
                 readAppFile.nextLine();
-                Appointment a = new Appointment(aId, IC, lname, fname, centre, date, sTime, eTime,  name, status);
+                Appointment a = new Appointment(aId, IC, lname, fname, centre, date, sTime, eTime, name, status);
                 allAppointments.add(a);
             }
         } catch (FileNotFoundException e) {

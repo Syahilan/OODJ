@@ -5,13 +5,11 @@
 package assignmentoodj;
 
 //People Class is a subclass of User
-
 //IMPORT LIST;
 import java.util.ArrayList;
 
-public class People extends User{
-    
-    
+public class People extends User {
+
     // Private People Attributes
     private int systemNo;           // System Identification number will auto-increment from 40001 for People
     private String username;
@@ -26,12 +24,10 @@ public class People extends User{
     private String addressln2;
     private String citizenStat;
     private String identityTxt;
-    
-    
+
     //Auto-increment array
     private ArrayList<People> myPeople = new ArrayList<People>();
-    
-    
+
     // People Object Constructor
     public People(int systemnumber, String username, String password, String firstname, String lastname, int age, String gender, String phone, String email, String addressln1, String addressln2, String citizenStat, String identityTxt) {
         this.systemNo = systemnumber;
@@ -48,13 +44,13 @@ public class People extends User{
         this.citizenStat = citizenStat;
         this.identityTxt = identityTxt;
     }
-    
+
     // People Object Getters
     // <editor-fold defaultstate="collapsed" desc="Getters">
     public int getSystemNo() {
         return systemNo;
     }
-    
+
     public String getUsername() {
         return username;
     }
@@ -107,13 +103,13 @@ public class People extends User{
         return myPeople;
     }
     // </editor-fold> 
-    
+
     // People Object Setters
     // <editor-fold defaultstate="collapsed" desc="Setters">
     public void getSystemNo(int systemnumber) {
         this.systemNo = systemnumber;
     }
-    
+
     public void setUsername(String username) {
         this.username = username;
     }

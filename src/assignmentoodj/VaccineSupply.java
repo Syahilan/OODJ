@@ -72,4 +72,3 @@ public class VaccineSupply {
         VaccineInventoryIO.allVacSupplies.set(vsInd, v);
     }
 }
-

@@ -5,13 +5,12 @@
 package assignmentoodj;
 
 //Personnel Class is a subclass of User
-
 //IMPORT LIST;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Personnel extends User{
-    
+public class Personnel extends User {
+
     // Private Personnel Attributes
     private int systemNo;           // System Identification number will auto-increment from 30001 for People
     private String username;
@@ -23,11 +22,10 @@ public class Personnel extends User{
     private Date startDate;
     private String phone;
     private String email;
-    
-    
+
     //Auto-increment array
     private ArrayList<Personnel> myPersonnel = new ArrayList<Personnel>();
-    
+
     //Constructor
     public Personnel(int systemNo, String username, String password, String firstname, String lastname, int age, String gender, Date startDate, String phone, String email) {
         this.systemNo = systemNo;
@@ -88,7 +86,7 @@ public class Personnel extends User{
         return myPersonnel;
     }
     // </editor-fold> 
-    
+
     //Setters
     // <editor-fold defaultstate="collapsed" desc="Setters">
     public void setSystemNo(int systemNo) {
@@ -135,5 +133,5 @@ public class Personnel extends User{
         this.myPersonnel = myPersonnel;
     }
     // </editor-fold> 
-    
+
 }

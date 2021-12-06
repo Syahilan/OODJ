@@ -3,6 +3,7 @@
  * APD2F2109CS(DA) || CT038-3-2-OODJ-LAB-18
  */
 package assignmentoodj;
+
 public enum VaccineName {
     Moderna, Pfizer, CanSino, Janssen, AstraZeneca, Sinopharm, Sinovac, Sputnik;
 }

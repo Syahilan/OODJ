@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is proprietary code written by Syahilan A/L Selvarajoo [TP062031] & Darshini Dakshyani Beerachee [TP060519]
+ * APD2F2109CS(DA) || CT038-3-2-OODJ-LAB-18
  */
 package assignmentoodj;
 
@@ -19,12 +18,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Darshini
- */
 public class DatePicker {
-        public static final int ALL_DATES = 0;
+
+    public static final int ALL_DATES = 0;
     public static final int FUTURE_DATES = 1;
 
     Calendar today = Calendar.getInstance();

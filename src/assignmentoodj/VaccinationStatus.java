@@ -1,14 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is proprietary code written by Syahilan A/L Selvarajoo [TP062031] & Darshini Dakshyani Beerachee [TP060519]
+ * APD2F2109CS(DA) || CT038-3-2-OODJ-LAB-18
  */
 package assignmentoodj;
 
-/**
- *
- * @author Darshini
- */
 public enum VaccinationStatus {
-     Vaccinated, Unvaccinated;
+    Vaccinated, Unvaccinated;
 }

@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class PersonnelUpdateUserForm extends JFrame{
+public class PersonnelUpdateUserForm extends JFrame {
 
     // Variables declaration - In order same as the form
     private JTextField usernameTxt;     // Username
@@ -50,15 +50,13 @@ public class PersonnelUpdateUserForm extends JFrame{
     private JLabel jLabel15;
     private JLabel jLabel16;
     // End of variables declaration
-    
-    
+
     public PersonnelUpdateUserForm() {
         initComponents();
         initFields();
     }
-    
-    
-    private void initFields(){
+
+    private void initFields() {
         //Initialize the fields to the People to Update
         String c1 = Main.peoToUpdate.getUsername();
         usernameTxt.setText(c1);
@@ -108,7 +106,7 @@ public class PersonnelUpdateUserForm extends JFrame{
             CitizenTxt = "Non-Citizen";
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Swing Code">                          
     private void initComponents() {
@@ -146,7 +144,6 @@ public class PersonnelUpdateUserForm extends JFrame{
         //Fixed Null issue - Not needed for Update existing user
         //GenderTxt = "Male";
         //CitizenTxt = "Citizen";
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
         setLocationByPlatform(true);
@@ -376,14 +373,13 @@ public class PersonnelUpdateUserForm extends JFrame{
         setLocationRelativeTo(null);
     }// </editor-fold>
 
-    
-    private void BackButActionPerformed(java.awt.event.ActionEvent evt){
+    private void BackButActionPerformed(java.awt.event.ActionEvent evt) {
         Main.peoToUpdate = null;
         this.setVisible(false);
         PersonnelManagePeoplePage pmppD = new PersonnelManagePeoplePage();
         pmppD.setVisible(true);
     }
-    
+
     private void ResetButActionPerformed(java.awt.event.ActionEvent evt) {
         // <editor-fold defaultstate="collapsed" desc="Reset">
         String c1 = Main.peoToUpdate.getUsername();
@@ -424,7 +420,7 @@ public class PersonnelUpdateUserForm extends JFrame{
         }
         // </editor-fold>
     }
-    
+
     private void GenderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
         String selected = GenderComboBox.getSelectedItem().toString();
         if (selected != null && selected.equals("Male")) {
@@ -434,7 +430,7 @@ public class PersonnelUpdateUserForm extends JFrame{
         }
 
     }
-    
+
     private void CitizenStatComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
         String selected = CitizenshipStatComboBox.getSelectedItem().toString();
         if (selected.equals("Citizen")) {
@@ -445,7 +441,7 @@ public class PersonnelUpdateUserForm extends JFrame{
             //System.out.println("UH OH, MALAYSIA NO BOLEH!");
         }
     }
-    
+
     private void UpdateButActionPerformed(java.awt.event.ActionEvent evt) {
 
         //Update Main.userToUpdate to new fields
@@ -476,8 +472,6 @@ public class PersonnelUpdateUserForm extends JFrame{
         //Main.userToUpdate.setIdentityTxt(x12);
 
         //Check if important variables already exist.
-        
-        
         People userExisted = DataIO.checkPeopleA(x1, x7, x8, x12);
 
         try {
@@ -487,7 +481,7 @@ public class PersonnelUpdateUserForm extends JFrame{
 
                 if (x1.length() > 0 && x2.length() > 0 && x3.length() > 0 && x4.length() > 0 && x5.length() > 0 && x6.trim().length() > 0 && x7.length() > 0 && x8.length() > 0 && x9.length() > 0 && x10.length() > 0 && x11.length() > 0 && x12.length() > 0) {
                     if (x5age >= 18) {
-                        
+
                         Main.peoToUpdate.setUsername(x1);
                         Main.peoToUpdate.setPassword(x2);
                         Main.peoToUpdate.setFirstname(x3);
@@ -500,7 +494,7 @@ public class PersonnelUpdateUserForm extends JFrame{
                         Main.peoToUpdate.setAddressln2(x10);
                         Main.peoToUpdate.setCitizenStat(x11);
                         Main.peoToUpdate.setIdentityTxt(x12);
-                        
+
                         DataIO.updatePeople();
 
                         // After a successful edit of People.
@@ -522,6 +516,6 @@ public class PersonnelUpdateUserForm extends JFrame{
 
             JOptionPane.showMessageDialog(this, "ERROR, Wrong input format for Age!", "Error Message", JOptionPane.ERROR_MESSAGE);
         }
-        
+
     }
 }
