@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class PersonnelManagePersonnelPage extends JFrame{
     
     private static final int PerDatCol = 7;
-    private static Personnel pB;
+    Personnel pB;
     // Variables declaration               
     private JButton BackBut;
     private JButton ClearBut;

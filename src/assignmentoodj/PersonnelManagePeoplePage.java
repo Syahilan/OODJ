@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class PersonnelManagePeoplePage extends JFrame {
 
     private static final int PeoDatCol = 8;
-    private static People pA;
+    People pA;
     // Variables declaration               
     private JButton BackBut;
     private JButton ClearBut;
@@ -290,6 +290,7 @@ public class PersonnelManagePeoplePage extends JFrame {
                 peoModelA.addRow(rowData);
             }
             DataIO.allUserSearch = new ArrayList<User>();
+            
         } else {
             JOptionPane.showMessageDialog(this, "ERROR, Please fill fields for First name AND Last Name!", "Error Message", JOptionPane.ERROR_MESSAGE);
         }

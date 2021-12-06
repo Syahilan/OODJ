@@ -6,6 +6,7 @@ package assignmentoodj;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -191,7 +192,19 @@ public class ScheduleManagementPage extends JFrame {
 
         Object[] columns = {"ID", "CENTRE", "DATE", "TIME", "VACCINE",
             "QUANTITY"};
-        model = new DefaultTableModel();
+
+        // Implement numeric sort on quantity column (instead of default string sort)
+        // => Method: override the getColumnClass method in DefaultTableModel
+        //            for column 5 (quantity) and return an Integer
+        model = new DefaultTableModel() {
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                if (columnIndex == 5) {
+                    return Integer.class;
+                }
+                return super.getColumnClass(columnIndex);
+            }
+        };
         model.setColumnIdentifiers(columns);
         // Add table Sorter
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(
@@ -353,7 +366,9 @@ public class ScheduleManagementPage extends JFrame {
         model.setRowCount(0);
         for (int i = 0; i < schedules.size(); i++) {
             if ((centreStr == "" || schedules.get(i).getCentre().equals(centreStr))
-                    && (vacStr == "" || schedules.get(i).getVacName().equals(vacStr))) {
+                    && (vacStr == "" || schedules.get(i).getVacName().equals(vacStr))
+                    &&((Main.functionL2 == "BOOK" && schedules.get(i).getDateDate().after(new Date())) ||
+                    (Main.functionL2 != "BOOK"))) {
 
                 data[0] = schedules.get(i).getsId();
                 data[1] = schedules.get(i).getCentre();
