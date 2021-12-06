@@ -3,13 +3,13 @@ people
 123
 Adam
 Warlock
-30
+32
 Male
 918-1726-38187
 warlock.a@gmail.com
 40, Roberts Street,
 5679 Penn Ave
-Citizen
+Non-Citizen
 US256351
 
 40002
@@ -27,34 +27,6 @@ Citizen
 128371-05-1827
 
 40003
-Yuser
-1234
-Robert
-Baratheon
-56
-Male
-60574234
-baratheon@got.com
-1, King's Landing
-Westeros
-Citizen
-10011001
-
-40004
-lafrog
-123
-La
-Frog
-18
-Female
-3743646172
-frog@frogmail.com
-50, Frog Drive
-Frog Country
-Citizen
-123123-92-1223
-
-40005
 user
 123
 Margaret
@@ -67,4 +39,116 @@ thatcher@ironlady.com
 London
 Non-Citizen
 AI162G1562
+
+40004
+testAgain
+123
+Peter
+Parker
+19
+Male
+91783471834
+parker@mcu.com
+11,  Bleeker Street
+Queens
+Citizen
+12673516253
+
+40005
+user1
+password
+Albert
+Lang
+45
+Male
+888-12736461
+lang223@yahoo.com
+44, Privet Drive
+54000 Surrey
+Non-Citizen
+UK193716712
+
+40006
+persona
+123
+Gal
+Gadot
+22
+Female
+1823812-123123
+gadot@celeb.com
+30, Jalan Tiga
+Taman Gerak
+Citizen
+172631-12-1828
+
+40007
+good
+123
+Kumar
+Patel
+44
+Male
+7162-1273626
+patel@protonmail.com
+40, Jln Haven,
+Bukit Jalil, KL
+Citizen
+172635-18-1281
+
+40008
+great
+123
+Jacinda
+Arden
+50
+Female
+672-27261523
+arden@minister.gov
+40, Aukland Road
+NZ
+Non-Citizen
+NZ191283
+
+40009
+Yuser
+1234
+Robert
+Baratheon
+56
+Male
+60574234
+baratheon@got.com
+1, King's Landing
+Westeros
+Citizen
+100010-01-1010
+
+40010
+Yasir
+1234
+Cersei
+Lannister
+60
+Female
+1827816
+lannister@debtspaid.com
+1, King's Landing
+Westeros
+Citizen
+100011-11-0101
+
+40011
+taken
+222
+Liam
+Neeson
+67
+Male
+7165253
+hidden@mail.com
+12, Jln 2/12, Subang Jaya
+KL
+Citizen
+127231-11-1289
 
