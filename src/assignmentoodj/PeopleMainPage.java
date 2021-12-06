@@ -99,7 +99,7 @@ public class PeopleMainPage extends JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Sans Serif", 2, 16)); // NOI18N
-        jLabel6.setText("Check my Records");
+        jLabel6.setText("Review Profile Details");
 
         editDetailBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
         editDetailBut.setText("Edit My Details");
@@ -204,9 +204,10 @@ public class PeopleMainPage extends JFrame {
     }
 
     private void EditDetailButActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
         // LINK TO The Edit my details Page HERE!
-
+        this.setVisible(false);
+        PeopleUpdateForm pufX = new PeopleUpdateForm();
+        pufX.setVisible(true);
     }
 
     private void ViewStatusButActionPerformed(java.awt.event.ActionEvent evt) {
