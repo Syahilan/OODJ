@@ -88,7 +88,7 @@ public class PersonnelManagePersonnelPage extends JFrame{
         SearchBut.setText("Search");
         SearchBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //SearchButActionPerformed(evt);
+                SearchButActionPerformed(evt);
             }
         });
 
@@ -104,7 +104,7 @@ public class PersonnelManagePersonnelPage extends JFrame{
         ClearBut.setText("Clear");
         ClearBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //ClearButActionPerformed(evt);
+                ClearButActionPerformed(evt);
             }
         });
 
@@ -243,6 +243,48 @@ public class PersonnelManagePersonnelPage extends JFrame{
         PersonnelUserManagementPage pumpC = new PersonnelUserManagementPage();
         pumpC.setVisible(true);
     }
+    
+    private void SearchButActionPerformed(java.awt.event.ActionEvent evt) {
+        //Check if the any of the fields entered is null?
+        String x1 = FirstNameTxt.getText().trim();      // Search Criteria 1
+        String x2 = LastNameTxt.getText().trim();       // Search Criteria 2
+
+        if (x1.length() > 0 && x2.length() > 0) {
+            //Reset Main userToSearch to null every search.
+            Main.userToSearch = null;
+            //Parse the Strings to DATAIO Search Function.
+            Main.userType = 2;          //Used to denote the type of user being searched (Current Index: 1 = People, 2 = Personnel).  
+            DataIO.checkUser(x1, x2);
+            //userToSearch is found and set!
+            DefaultTableModel perModelA = (DefaultTableModel) jTable1.getModel();
+            perModelA.setRowCount(0);
+            Object rowData[] = new Object[7];
+            for (int i = 0; i < DataIO.allUserSearch.size(); i++) {
+                rowData[0] = DataIO.allUserSearch.get(i).getSystemNo();
+                rowData[1] = DataIO.allUserSearch.get(i).getFirstname();
+                rowData[2] = DataIO.allUserSearch.get(i).getLastname();
+                rowData[3] = DataIO.allUserSearch.get(i).getAge();
+                rowData[4] = DataIO.allUserSearch.get(i).getGender();
+                rowData[5] = DataIO.allUserSearch.get(i).getPhone();
+                rowData[6] = DataIO.allUserSearch.get(i).getEmail();
+                perModelA.addRow(rowData);
+            }
+            DataIO.allUserSearch = new ArrayList<User>();
+        } else {
+            JOptionPane.showMessageDialog(this, "ERROR, Please fill fields for First name AND Last Name!", "Error Message", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    private void ClearButActionPerformed(java.awt.event.ActionEvent evt) {
+        DefaultTableModel perModelA = (DefaultTableModel) jTable1.getModel();
+        perModelA.setRowCount(0);
+        FirstNameTxt.setText("");
+        LastNameTxt.setText("");
+        addPerRowtoJTable();
+
+    }
+    
     
     private void UpdateUserButActionPerformed(java.awt.event.ActionEvent evt) {
         if (Main.perToUpdate != null) {
