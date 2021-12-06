@@ -36,6 +36,8 @@ public class CreateSchedulePage extends JFrame implements ActionListener, Change
             try {
                 if (qnt.getText().isEmpty() || date.getText().isEmpty() || (qnt.getText().isEmpty() && date.getText().isEmpty())) {
                     JOptionPane.showMessageDialog(btnSave, "Data Missing");
+                } else if (Integer.parseInt(qnt.getText()) <= 0) {
+                    JOptionPane.showMessageDialog(btnSave, "Quantity should be > 0!");
 
                 } else if (!checkDuplicateSchedule(cntr, vacName, date.getText())
                         && !checkInvalidDate((Date) startTime.getValue(),
