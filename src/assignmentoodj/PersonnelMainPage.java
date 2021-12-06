@@ -242,7 +242,6 @@ public class PersonnelMainPage extends JFrame {
         ReportPage rp = new ReportPage();
         rp.setVisible(true);
         // LINK TO The Reports Page HERE!
-
     }
 
 }

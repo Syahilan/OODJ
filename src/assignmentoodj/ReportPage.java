@@ -48,7 +48,7 @@ public class ReportPage extends JFrame {
         title.setForeground(new java.awt.Color(0, 51, 204));
         title.setText("Gender Report");
 
-        Object[] columns = {"GENDER", "STATUS", "PERCENTAGE(%)"};
+        Object[] columns = {"GENDER", "STATUS", "USER COUNT"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
         reportGenderTable.setModel(model);
@@ -205,12 +205,25 @@ public class ReportPage extends JFrame {
 
     public void displayGenderReport(){
         //Syahilan ADD YOUR CODE HERE
+        GenderReport.processGenderReport();
+        final Object[] dataG = new Object[NB_COL];
+        
+        ArrayList<GenderReport> genReport = new ArrayList<GenderReport>();
+        genReport = GenderReport.allGenderReport;
+        
+        for (int j = 0; j < NB_ROW_GEN; j++) {
+            dataG[0] = genReport.get(j).getGender();
+            dataG[1] = genReport.get(j).getVacStatus();
+            dataG[2] = genReport.get(j).getCount();
+            model.addRow(dataG);
+        }
+        
     }
 
     public void displayAgeReport() {
         ReportAgeData.processAgeReportDate();
         // create an array of objects to set the row data
-        final Object[] data = new Object[NB_COL_AGE];
+        final Object[] data = new Object[NB_COL];
 
         ArrayList<ReportAgeData> ageReport = new ArrayList<ReportAgeData>();
         ageReport = ReportAgeData.allAgeReport;
@@ -245,9 +258,10 @@ public class ReportPage extends JFrame {
     
 
     // No of columns in age table data to be displayed
-    private static final int NB_COL_AGE = 3;
+    private static final int NB_COL = 3;
     
     // No of rows in age table data to be displayed
     private static final int NB_ROW_AGE = 16;
+    private static final int NB_ROW_GEN = 4;
 
 }
