@@ -254,7 +254,6 @@ public class PersonnelManagePeoplePage extends JFrame {
             rowData[8] = myPeople.get(i).getIdentityTxt();
             peoModel.addRow(rowData);
         }
-
     }
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {

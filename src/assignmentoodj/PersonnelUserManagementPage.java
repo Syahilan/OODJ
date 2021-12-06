@@ -6,7 +6,6 @@ package assignmentoodj;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
-import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JRadioButtonMenuItem;
 
@@ -19,20 +18,10 @@ public class PersonnelUserManagementPage extends JFrame {
     private JButton BackBut;
     private JButton DispPeopleBut;
     private JButton DispPersonnelBut;
-    private JButton EditPeopleBut;
-    private JButton EditPersonnelBut;
-    private JButton SearPeopleIdBut;
-    private JButton SearPersonnelIdBut;
-    private JButton RemPeopleBut;
-    private JButton RemPersonnelBut;
-    private ButtonGroup buttonGroup1;
     private JLabel jLabel1;
     private JLabel jLabel3;
     private JLabel jLabel4;
     private JLabel jLabel5;
-    private JLabel jLabel6;
-    private JLabel jLabel7;
-    private JLabel jLabel8;
     // End of variables declaration               
 
     public PersonnelUserManagementPage() {
@@ -48,39 +37,28 @@ public class PersonnelUserManagementPage extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        buttonGroup1 = new ButtonGroup();
-        PersonnelUserManagementPage = new JRadioButtonMenuItem();
-        BackBut = new JButton();
-        jLabel1 = new JLabel();
-        jLabel3 = new JLabel();
-        jLabel4 = new JLabel();
-        AddPeopleBut = new JButton();
-        AddPersonnelBut = new JButton();
-        jLabel5 = new JLabel();
-        DispPeopleBut = new JButton();
-        DispPersonnelBut = new JButton();
-        jLabel6 = new JLabel();
-        SearPeopleIdBut = new JButton();
-        SearPersonnelIdBut = new JButton();
-        jLabel7 = new JLabel();
-        jLabel8 = new JLabel();
-        EditPeopleBut = new JButton();
-        EditPersonnelBut = new JButton();
-        RemPeopleBut = new JButton();
-        RemPersonnelBut = new JButton();
+        PersonnelUserManagementPage = new javax.swing.JRadioButtonMenuItem();
+        BackBut = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        AddPeopleBut = new javax.swing.JButton();
+        AddPersonnelBut = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        DispPeopleBut = new javax.swing.JButton();
+        DispPersonnelBut = new javax.swing.JButton();
 
         PersonnelUserManagementPage.setForeground(new java.awt.Color(255, 0, 0));
         PersonnelUserManagementPage.setSelected(true);
         PersonnelUserManagementPage.setText("jRadioButtonMenuItem1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("COVID-19 VACCINE REGISTRATION SYSTEM");
-        setLocationByPlatform(true);
-        setResizable(false);
-        setName("PersonnelUserManagementPage"); // NOI18N
+        setName("PersonnelUserManagementPage");
 
         BackBut.setBackground(new java.awt.Color(255, 0, 0));
-        BackBut.setFont(new java.awt.Font("Sans Serif", 3, 12)); // NOI18N
+        BackBut.setFont(new java.awt.Font("SansSerif", 3, 12)); // NOI18N
+        BackBut.setForeground(new java.awt.Color(255, 255, 255));
         BackBut.setText("<<BACK");
         BackBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,17 +66,17 @@ public class PersonnelUserManagementPage extends JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Sans Serif", 1, 30)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 25)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("User Management Page");
 
-        jLabel3.setFont(new java.awt.Font("Sans Serif", 1, 20)); // NOI18N
-        jLabel3.setText("Please select from the options:");
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        jLabel3.setText("Please choose the function");
 
-        jLabel4.setFont(new java.awt.Font("Sans Serif", 2, 16)); // NOI18N
-        jLabel4.setText("Add new users by type:");
+        jLabel4.setFont(new java.awt.Font("SansSerif", 2, 16)); // NOI18N
+        jLabel4.setText("Add new Users:");
 
-        AddPeopleBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
+        AddPeopleBut.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         AddPeopleBut.setText("People");
         AddPeopleBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +84,7 @@ public class PersonnelUserManagementPage extends JFrame {
             }
         });
 
-        AddPersonnelBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
+        AddPersonnelBut.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         AddPersonnelBut.setText("Personnel");
         AddPersonnelBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,10 +92,10 @@ public class PersonnelUserManagementPage extends JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Sans Serif", 2, 16)); // NOI18N
-        jLabel5.setText("Display all Records of");
+        jLabel5.setFont(new java.awt.Font("SansSerif", 2, 16)); // NOI18N
+        jLabel5.setText("Manage Existing Users:");
 
-        DispPeopleBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
+        DispPeopleBut.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         DispPeopleBut.setText("People");
         DispPeopleBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,68 +103,11 @@ public class PersonnelUserManagementPage extends JFrame {
             }
         });
 
-        DispPersonnelBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
+        DispPersonnelBut.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         DispPersonnelBut.setText("Personnel");
         DispPersonnelBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DispPersonnelButActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Sans Serif", 2, 16)); // NOI18N
-        jLabel6.setText("Search Users by ID");
-
-        SearPeopleIdBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
-        SearPeopleIdBut.setText("People by ID");
-        SearPeopleIdBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearPeopleIdButActionPerformed(evt);
-            }
-        });
-
-        SearPersonnelIdBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
-        SearPersonnelIdBut.setText("Personnel by ID");
-        SearPersonnelIdBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearPersonnelIdButActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Sans Serif", 2, 16)); // NOI18N
-        jLabel7.setText("Edit Existing Users");
-
-        jLabel8.setFont(new java.awt.Font("Sans Serif", 2, 16)); // NOI18N
-        jLabel8.setText("Remove user");
-
-        EditPeopleBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
-        EditPeopleBut.setText("People");
-        EditPeopleBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditPeopleButActionPerformed(evt);
-            }
-        });
-
-        EditPersonnelBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
-        EditPersonnelBut.setText("Personnel");
-        EditPersonnelBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditPersonnelButActionPerformed(evt);
-            }
-        });
-
-        RemPeopleBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
-        RemPeopleBut.setText("People");
-        RemPeopleBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemPeopleBut1ActionPerformed(evt);
-            }
-        });
-
-        RemPersonnelBut.setFont(new java.awt.Font("Sans Serif", 0, 13)); // NOI18N
-        RemPersonnelBut.setText("Personnel");
-        RemPersonnelBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemPersonnelBut1ActionPerformed(evt);
             }
         });
 
@@ -195,58 +116,38 @@ public class PersonnelUserManagementPage extends JFrame {
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGap(3, 3, 3)
-                                                .addComponent(BackBut)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel1))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addComponent(DispPeopleBut)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                .addComponent(DispPersonnelBut))
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addComponent(AddPeopleBut)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                .addComponent(AddPersonnelBut)))
-                                                                .addGap(220, 220, 220))
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addGap(156, 156, 156)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(RemPersonnelBut)
-                                                                        .addComponent(SearPersonnelIdBut)
-                                                                        .addComponent(EditPersonnelBut))
-                                                                .addGap(0, 0, Short.MAX_VALUE))))
+                                                .addComponent(AddPeopleBut)
+                                                .addGap(38, 38, 38)
+                                                .addComponent(AddPersonnelBut))
                                         .addGroup(layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(SearPeopleIdBut)
-                                                .addGap(0, 0, Short.MAX_VALUE)))
-                                .addContainerGap())
+                                                .addComponent(DispPeopleBut)
+                                                .addGap(38, 38, 38)
+                                                .addComponent(DispPersonnelBut)))
+                                .addGap(68, 192, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel3)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel7)
-                                        .addComponent(RemPeopleBut)
-                                        .addComponent(jLabel8)
-                                        .addComponent(EditPeopleBut))
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5))
                                 .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(BackBut, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(BackBut)
-                                        .addComponent(jLabel1))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(BackBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -261,26 +162,9 @@ public class PersonnelUserManagementPage extends JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(DispPersonnelBut)
                                         .addComponent(DispPeopleBut))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(SearPeopleIdBut)
-                                        .addComponent(SearPersonnelIdBut, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(RemPeopleBut)
-                                        .addComponent(RemPersonnelBut, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(EditPeopleBut)
-                                        .addComponent(EditPersonnelBut))
-                                .addContainerGap(138, Short.MAX_VALUE))
+                                .addContainerGap(39, Short.MAX_VALUE))
         );
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>                        
@@ -312,47 +196,9 @@ public class PersonnelUserManagementPage extends JFrame {
 
     private void DispPersonnelButActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
+        PersonnelManagePersonnelPage pmppB = new PersonnelManagePersonnelPage();
+        pmppB.setVisible(true);
 
-    }
-
-    private void EditPeopleButActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
-
-    }
-
-    private void EditPersonnelButActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
-
-    }
-
-    private void SearPeopleIdButActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
-
-    }
-
-    private void SearPersonnelIdButActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
-
-    }
-
-    private void RemPeopleBut1ActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
-
-    }
-
-    private void RemPersonnelBut1ActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
-
-    }
-
-    private static class AdminModifySport {
-
-        public AdminModifySport() {
-        }
-
-        private void setVisible(boolean b) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
     }
 
 }

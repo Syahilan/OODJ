@@ -36,7 +36,6 @@ public class PersonnelAddPersonnelPage extends JFrame {
     private JButton BackBut;
     private javax.swing.JButton ClearBut;
     private JButton RegisterBut;
-    private JComboBox<String> SCenterComboBox;
     private JComboBox<String> PGenderComboBox;
     private org.jdatepicker.JDatePicker jDatePicker1;
     private JLabel jLabel1;

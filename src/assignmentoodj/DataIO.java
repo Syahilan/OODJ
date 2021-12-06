@@ -23,6 +23,9 @@ public class DataIO {
     public static ArrayList<Personnel> allPersonnel
             = new ArrayList<Personnel>();
 
+    public static ArrayList<Personnel> allPersonnelA
+            = new ArrayList<Personnel>();
+    
     public static ArrayList<People> allPeople
             = new ArrayList<People>();
 
@@ -163,7 +166,78 @@ public class DataIO {
 
     }
 
-    //Update People totext file
+    //Update Personnel to text file
+    public static void updatePersonnel(){
+        Personnel k = Main.perToUpdate;
+        try{
+            Scanner s5 = new Scanner(new File("Personnel.txt"));
+            while (s5.hasNext()){
+                int sysID = Integer.parseInt(s5.nextLine());
+                String a1 = s5.nextLine();
+                String a2 = s5.nextLine();
+                String a3 = s5.nextLine();
+                String a4 = s5.nextLine();
+                int a5 = Integer.parseInt(s5.nextLine());
+                String a6 = s5.nextLine();
+                //Same as Darshini's Date format
+                String a7 = s5.nextLine();
+                java.text.SimpleDateFormat myDateFormat = new java.text.SimpleDateFormat("E, dd/MM/yyyy");
+                Date a7Date = myDateFormat.parse(a7);
+                String a8 = s5.nextLine();
+                String a9 = s5.nextLine();
+                s5.nextLine();
+                
+                //IF...Else
+                Personnel c = new Personnel(sysID, a1, a2, a3, a4, a5, a6, a7Date, a8, a9);
+                if (c.getSystemNo() != Main.perToUpdate.getSystemNo()) {
+                    allPersonnelA.add(c);
+                } else if (c.getSystemNo() == Main.perToUpdate.getSystemNo()) {
+                    allPersonnelA.add(k);
+                }
+            
+            }
+            
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found !");
+            try {
+                PrintWriter writePERFile = new PrintWriter("Personnel.txt");
+            } catch (Exception ax) {
+                System.out.println("Error in write! Creating new Personnel File!");
+            }
+        } catch (Exception a) {
+            System.out.println("Error in READ!");
+        }
+        
+        //allPersonnel has been read successfully!
+        try {
+            PrintWriter personnelUpdater = new PrintWriter("Personnel.txt");
+            for (int i = 0; i < allPersonnelA.size(); i++) {
+                personnelUpdater.println(allPersonnelA.get(i).getSystemNo());     // WRITE System Number
+                personnelUpdater.println(allPersonnelA.get(i).getUsername());     // WRITE Username
+                personnelUpdater.println(allPersonnelA.get(i).getPassword());     // WRITE Password
+                personnelUpdater.println(allPersonnelA.get(i).getFirstname());    // WRITE First Name
+                personnelUpdater.println(allPersonnelA.get(i).getLastname());     // WRITE Last Name
+                personnelUpdater.println(allPersonnelA.get(i).getAge());          // WRITE Age
+                personnelUpdater.println(allPersonnelA.get(i).getGender());       // WRITE Gender
+                //Change format to "E, dd/MM/yyyy", Same as Darshini's Date format.
+                Date f1 = allPersonnelA.get(i).getStartDate();
+                java.text.SimpleDateFormat myDateFormat = new java.text.SimpleDateFormat("E, dd/MM/yyyy");
+                String dateStr = myDateFormat.format(f1);
+                personnelUpdater.println(dateStr);    // WRITE StartDate
+                personnelUpdater.println(allPersonnelA.get(i).getPhone());        // WRITE Phone
+                personnelUpdater.println(allPersonnelA.get(i).getEmail());        // WRITE Email
+                personnelUpdater.println();
+            }
+            personnelUpdater.close();
+            allPersonnel = allPersonnelA;
+            allPersonnelA = new ArrayList<Personnel>();
+
+        } catch (Exception e) {
+            System.out.println("Error in WRITE!");
+        }
+    }
+    
+    //Update People to text file
     public static void updatePeople() {
         People f = Main.peoToUpdate;
         try {
@@ -254,6 +328,20 @@ public class DataIO {
         return null;
     }
 
+    
+    //Personnel Checking after Update
+    public static Personnel checkPersonnelA(String x1, String x2, String x3) {
+        for (int i = 0; i < allPersonnel.size(); i++) {
+            // Returns all people without the user being updated
+            if (Main.perToUpdate.getSystemNo() != allPersonnel.get(i).getSystemNo()) {
+                if (x1.equals(allPersonnel.get(i).getUsername()) || x2.equals(allPersonnel.get(i).getPhone()) || x3.equals(allPersonnel.get(i).getEmail())) {
+                    return allPersonnel.get(i);
+                }
+            }
+        }
+        return null;
+    }
+    
     //People Checking after Update
     public static People checkPeopleA(String x1, String x2, String x3, String x4) {
         for (int i = 0; i < allPeople.size(); i++) {
