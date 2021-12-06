@@ -512,8 +512,11 @@ public class ScheduleManagementPage extends JFrame {
                 bap.setVisible(true);
             }
         } else {
-
-            JOptionPane.showMessageDialog(this, "Please Select row to be Updated !");
+            if (Main.functionL2 == "BOOK") {
+                JOptionPane.showMessageDialog(this, "Please Select row to be able to Book !");
+            } else {
+                JOptionPane.showMessageDialog(this, "Please Select row to be Updated !");
+            }
         }
     }
 
