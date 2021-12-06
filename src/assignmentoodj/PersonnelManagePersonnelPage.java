@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -158,7 +159,7 @@ public class PersonnelManagePersonnelPage extends JFrame{
         DeleteUserBut.setText("DELETE USER");
         DeleteUserBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //DeleteUserButActionPerformed(evt);
+                DeleteUserButActionPerformed(evt);
             }
         });
 
@@ -250,6 +251,18 @@ public class PersonnelManagePersonnelPage extends JFrame{
             puaf.setVisible(true);
         }
 
+    }
+    
+    private void DeleteUserButActionPerformed(java.awt.event.ActionEvent evt){
+    if (Main.perToUpdate != null) {
+            // DELETE THE USER
+            Main.userToDelete = Main.perToUpdate;
+            DataIO.deleteUser();
+            JOptionPane.showMessageDialog(null, "User Deleted!");
+            this.setVisible(false);
+            PersonnelUserManagementPage pumpCX = new PersonnelUserManagementPage();
+            pumpCX.setVisible(true);
+        }
     }
     
     public void addPerRowtoJTable() {

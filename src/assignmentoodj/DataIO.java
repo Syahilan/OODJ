@@ -476,6 +476,69 @@ public class DataIO {
             User gB = Main.userToDelete;
             //Add the logic to Delete personnel here (PLUG and PLAY 322-335)
 
+            try {
+                Scanner s5a = new Scanner(new File("Personnel.txt"));
+                while (s5a.hasNext()) {
+                    int sysID = Integer.parseInt(s5a.nextLine());
+                    String a1 = s5a.nextLine();
+                    String a2 = s5a.nextLine();
+                    String a3 = s5a.nextLine();
+                    String a4 = s5a.nextLine();
+                    int a5 = Integer.parseInt(s5a.nextLine());
+                    String a6 = s5a.nextLine();
+                    //Same as Darshini's Date format
+                    String a7 = s5a.nextLine();
+                    java.text.SimpleDateFormat myDateFormat = new java.text.SimpleDateFormat("E, dd/MM/yyyy");
+                    Date a7Date = myDateFormat.parse(a7);
+                    String a8 = s5a.nextLine();
+                    String a9 = s5a.nextLine();
+                    s5a.nextLine();
+
+                    //If..Else
+                    Personnel l = new Personnel(sysID, a1, a2, a3, a4, a5, a6, a7Date, a8, a9);
+                    if (l.getSystemNo() != gB.getSystemNo()) {
+                        allPersonnelA.add(l);
+                    }
+
+                }
+            } catch (FileNotFoundException ea) {
+                System.out.println("File not found !");
+                try {
+                    PrintWriter writePERFile = new PrintWriter("Personnel.txt");
+                } catch (Exception axa) {
+                    System.out.println("Error in write! Creating new Personnel File!");
+                }
+            } catch (Exception aa) {
+                System.out.println("Error in READ!");
+            }
+
+            //allPersonnel has been read successfully without the deleted user!
+            try {
+                PrintWriter personnelDeleter = new PrintWriter("Personnel.txt");
+                for (int i = 0; i < allPersonnelA.size(); i++) {
+                    personnelDeleter.println(allPersonnelA.get(i).getSystemNo());     // WRITE System Number
+                    personnelDeleter.println(allPersonnelA.get(i).getUsername());     // WRITE Username
+                    personnelDeleter.println(allPersonnelA.get(i).getPassword());     // WRITE Password
+                    personnelDeleter.println(allPersonnelA.get(i).getFirstname());    // WRITE First Name
+                    personnelDeleter.println(allPersonnelA.get(i).getLastname());     // WRITE Last Name
+                    personnelDeleter.println(allPersonnelA.get(i).getAge());          // WRITE Age
+                    personnelDeleter.println(allPersonnelA.get(i).getGender());       // WRITE Gender
+                    //Change format to "E, dd/MM/yyyy", Same as Darshini's Date format.
+                    Date f1 = allPersonnelA.get(i).getStartDate();
+                    java.text.SimpleDateFormat myDateFormat = new java.text.SimpleDateFormat("E, dd/MM/yyyy");
+                    String dateStr = myDateFormat.format(f1);
+                    personnelDeleter.println(dateStr);    // WRITE StartDate
+                    personnelDeleter.println(allPersonnelA.get(i).getPhone());        // WRITE Phone
+                    personnelDeleter.println(allPersonnelA.get(i).getEmail());        // WRITE Email
+                    personnelDeleter.println();
+
+                }
+                personnelDeleter.close();
+                allPersonnel = allPersonnelA;
+                allPersonnelA = new ArrayList<Personnel>();
+            } catch (Exception e) {
+                System.out.println("Error in WRITE!");
+            }
         }
 
     }

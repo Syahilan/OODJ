@@ -18,7 +18,7 @@ import org.jdatepicker.UtilDateModel;
 public class PersonnelAddPersonnelPage extends JFrame {
 
     private static Date dat1;                       //Static Date
-
+    private int sysB;
     // Variables declaration - In order same as the form
     private JTextField userNameTxt;
     private JTextField passWordTxt;
@@ -303,8 +303,16 @@ public class PersonnelAddPersonnelPage extends JFrame {
     private void RegisterButActionPerformed(java.awt.event.ActionEvent evt) {
 
         try {
+            
+            //Check size before adding
+            if (DataIO.allPersonnel.size() <= 0) {
+                sysB = 30001 + DataIO.allPersonnel.size();
+            } else if (DataIO.allPersonnel.size() > 0) {
+                int size = DataIO.allPersonnel.size();
+                sysB = (DataIO.allPersonnel.get(size - 1).getSystemNo()) + 1;
+            }
+            
             //File file = new File("Personnel.txt");
-            int sys1 = 30001 + DataIO.allPersonnel.size();
             String x1 = userNameTxt.getText().trim();
             String x2 = passWordTxt.getText().trim();
             String x3 = FNameTxt.getText().trim();
@@ -318,7 +326,7 @@ public class PersonnelAddPersonnelPage extends JFrame {
             if (x1.length() > 0 && x2.length() > 0 && x3.length() > 0 && x4.length() > 0 && x5.length() > 0 && x6.trim().length() > 0 && x7.length() > 0 && x8.length() > 0) {
                 int x5age = Integer.parseInt(ageTxt.getText().trim());
                 if (x5age >= 18) {
-                    Personnel z = new Personnel(sys1, x1, x2, x3, x4, x5age, x6, dat2, x7, x8);
+                    Personnel z = new Personnel(sysB, x1, x2, x3, x4, x5age, x6, dat2, x7, x8);
                     DataIO.allPersonnel.add(z);
                     DataIO.writePersonnel();
                     // After a successful addition.
