@@ -345,7 +345,7 @@ public class PersonnelAddPeoplePage extends JFrame {
         if (selected.equals("Non-Citizen")) {
             CitizenTxt = "Citizen";
             //System.out.println("YAY, MALAYSIA BOLEH!");
-        } else if (selected != null && selected.equals("Non-Citizen")) {
+        } else if (selected.equals("Non-Citizen")) {
             CitizenTxt = "Non-Citizen";
             //System.out.println("UH OH, MALAYSIA NO BOLEH!");
         }
