@@ -7,6 +7,8 @@
 // This user class will contain methods that are the same for the People and Personnel Sub-class
 package assignmentoodj;
 
+import java.util.Date;
+
 public class User {
 
     private int systemNo;           // System Identification number will auto-increment from 40001 for People
@@ -22,6 +24,7 @@ public class User {
     private String addressln2;
     private String citizenStat;
     private String identityTxt;
+    private Date startDate;
 
     //Getters
     // <editor-fold defaultstate="collapsed" desc="Getters">
@@ -75,6 +78,10 @@ public class User {
 
     public String getIdentityTxt() {
         return identityTxt;
+    }
+
+    public Date getStartDate() {
+        return startDate;
     }
     // </editor-fold> 
 
@@ -131,6 +138,9 @@ public class User {
     public void setIdentityTxt(String identityTxt) {
         this.identityTxt = identityTxt;
     }
+    
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
     // </editor-fold> 
-
 }

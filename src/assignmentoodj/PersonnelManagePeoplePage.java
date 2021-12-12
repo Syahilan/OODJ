@@ -20,6 +20,14 @@ public class PersonnelManagePeoplePage extends JFrame {
 
     private static final int PeoDatCol = 8;
     People pA;
+
+    //Boolean to activate mouse listener A and B.
+    boolean MouseBool = true;
+
+    //Class Specific array for mouse clicked fix!
+    public static ArrayList<User> allUserSearchUpdater
+            = new ArrayList<User>();
+
     // Variables declaration               
     private JButton BackBut;
     private JButton ClearBut;
@@ -126,32 +134,52 @@ public class PersonnelManagePeoplePage extends JFrame {
         // get selected row data From table to display
         jTable1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                // i = the index of the selected row
-                int iRowPeo = jTable1.getSelectedRow();
-                Object rowDataA[] = new Object[9];
-                for (int j = 0; j < PeoDatCol; j++) {
-                    rowDataA[j] = jTable1.getValueAt(iRowPeo, j).toString();
+                if (MouseBool == true) {
+                    // i = the index of the selected row
+                    int iRowPeo = jTable1.getSelectedRow();
+                    Object rowDataA[] = new Object[9];
+                    for (int j = 0; j < PeoDatCol; j++) {
+                        rowDataA[j] = jTable1.getValueAt(iRowPeo, j).toString();
+                    }
+                    rowDataA[PeoDatCol] = iRowPeo;  //Row number
+                    ArrayList<People> thisPeople = DataIO.allPeople;
+
+                    int x1 = thisPeople.get(iRowPeo).getSystemNo();
+                    String x2 = thisPeople.get(iRowPeo).getUsername();
+                    String x3 = thisPeople.get(iRowPeo).getPassword();
+                    String x4 = thisPeople.get(iRowPeo).getFirstname();
+                    String x5 = thisPeople.get(iRowPeo).getLastname();
+                    int x6 = thisPeople.get(iRowPeo).getAge();
+                    String x7 = thisPeople.get(iRowPeo).getGender();
+                    String x8 = thisPeople.get(iRowPeo).getPhone();
+                    String x9 = thisPeople.get(iRowPeo).getEmail();
+                    String x10 = thisPeople.get(iRowPeo).getAddressln1();
+                    String x11 = thisPeople.get(iRowPeo).getAddressln2();
+                    String x12 = thisPeople.get(iRowPeo).getCitizenStat();
+                    String x13 = thisPeople.get(iRowPeo).getIdentityTxt();
+                    People pA = new People(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13);
+                    Main.peoToUpdate = pA;
+                    // OUTPUT = People pA [People Object]
+                } else if (MouseBool == false) {
+                    for (int y = 0; y < allUserSearchUpdater.size(); y++) {
+                        int x1S = allUserSearchUpdater.get(y).getSystemNo();
+                        String x2S = allUserSearchUpdater.get(y).getUsername();
+                        String x3S = allUserSearchUpdater.get(y).getPassword();
+                        String x4S = allUserSearchUpdater.get(y).getFirstname();
+                        String x5S = allUserSearchUpdater.get(y).getLastname();
+                        int x6S = allUserSearchUpdater.get(y).getAge();
+                        String x7S = allUserSearchUpdater.get(y).getGender();
+                        String x8S = allUserSearchUpdater.get(y).getPhone();
+                        String x9S = allUserSearchUpdater.get(y).getEmail();
+                        String x10S = allUserSearchUpdater.get(y).getAddressln1();
+                        String x11S = allUserSearchUpdater.get(y).getAddressln2();
+                        String x12S = allUserSearchUpdater.get(y).getCitizenStat();
+                        String x13S = allUserSearchUpdater.get(y).getIdentityTxt();
+                        People pA = new People(x1S, x2S, x3S, x4S, x5S, x6S, x7S, x8S, x9S, x10S, x11S, x12S, x13S);
+                        Main.peoToUpdate = pA;
+                        // OUTPUT = People pA [People Object]
+                    }
                 }
-                rowDataA[PeoDatCol] = iRowPeo;  //Row number
-                ArrayList<People> thisPeople = DataIO.allPeople;
-
-                int x1 = thisPeople.get(iRowPeo).getSystemNo();
-                String x2 = thisPeople.get(iRowPeo).getUsername();
-                String x3 = thisPeople.get(iRowPeo).getPassword();
-                String x4 = thisPeople.get(iRowPeo).getFirstname();
-                String x5 = thisPeople.get(iRowPeo).getLastname();
-                int x6 = thisPeople.get(iRowPeo).getAge();
-                String x7 = thisPeople.get(iRowPeo).getGender();
-                String x8 = thisPeople.get(iRowPeo).getPhone();
-                String x9 = thisPeople.get(iRowPeo).getEmail();
-                String x10 = thisPeople.get(iRowPeo).getAddressln1();
-                String x11 = thisPeople.get(iRowPeo).getAddressln2();
-                String x12 = thisPeople.get(iRowPeo).getCitizenStat();
-                String x13 = thisPeople.get(iRowPeo).getIdentityTxt();
-                People pA = new People(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13);
-                Main.peoToUpdate = pA;
-                // OUTPUT = People pA [People Object]
-
             }
         });
 
@@ -289,8 +317,12 @@ public class PersonnelManagePeoplePage extends JFrame {
                 rowData[8] = DataIO.allUserSearch.get(i).getIdentityTxt();
                 peoModelA.addRow(rowData);
             }
+
+            allUserSearchUpdater = DataIO.allUserSearch;
+
             DataIO.allUserSearch = new ArrayList<User>();
-            
+            MouseBool = false;
+
         } else {
             JOptionPane.showMessageDialog(this, "ERROR, Please fill fields for First name AND Last Name!", "Error Message", JOptionPane.ERROR_MESSAGE);
         }
@@ -303,7 +335,7 @@ public class PersonnelManagePeoplePage extends JFrame {
         FirstNameTxt.setText("");
         LastNameTxt.setText("");
         addPeoRowtoJTable();
-
+        MouseBool = true;
     }
 
     private void UpdateUserButActionPerformed(java.awt.event.ActionEvent evt) {

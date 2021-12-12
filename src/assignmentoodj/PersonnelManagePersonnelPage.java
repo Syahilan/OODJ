@@ -22,6 +22,14 @@ public class PersonnelManagePersonnelPage extends JFrame{
     
     private static final int PerDatCol = 7;
     Personnel pB;
+    
+    //Boolean to activate mouse listener A and B.
+    boolean MouseBool = true;
+    
+    //Class Specific array for mouse clicked fix!
+    public static ArrayList<User> allUserSearchUpdaterB
+            = new ArrayList<User>();
+    
     // Variables declaration               
     private JButton BackBut;
     private JButton ClearBut;
@@ -129,29 +137,48 @@ public class PersonnelManagePersonnelPage extends JFrame{
         // get selected row data From table to display
         jTable1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                // i = the index of the selected row
-                int iRowPer = jTable1.getSelectedRow();
-                Object rowDataA[] = new Object[8];
-                for (int j = 0; j < PerDatCol; j++) {
-                    rowDataA[j] = jTable1.getValueAt(iRowPer, j).toString();
+                if (MouseBool == true) {
+                    // i = the index of the selected row
+                    int iRowPer = jTable1.getSelectedRow();
+                    Object rowDataA[] = new Object[8];
+                    for (int j = 0; j < PerDatCol; j++) {
+                        rowDataA[j] = jTable1.getValueAt(iRowPer, j).toString();
+                    }
+                    rowDataA[PerDatCol] = iRowPer;  //Row number
+                    ArrayList<Personnel> thisPersonnel = DataIO.allPersonnel;
+
+                    int x1 = thisPersonnel.get(iRowPer).getSystemNo();
+                    String x2 = thisPersonnel.get(iRowPer).getUsername();
+                    String x3 = thisPersonnel.get(iRowPer).getPassword();
+                    String x4 = thisPersonnel.get(iRowPer).getFirstname();
+                    String x5 = thisPersonnel.get(iRowPer).getLastname();
+                    int x6 = thisPersonnel.get(iRowPer).getAge();
+                    String x7 = thisPersonnel.get(iRowPer).getGender();
+                    Date x8 = thisPersonnel.get(iRowPer).getStartDate();
+                    String x9 = thisPersonnel.get(iRowPer).getPhone();
+                    String x10 = thisPersonnel.get(iRowPer).getEmail();
+                    Personnel pB = new Personnel(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10);
+                    Main.perToUpdate = pB;
+                    // OUTPUT = Personnel pB [Personnel Object]
+                } else if (MouseBool == false) {
+                    for (int y = 0; y < allUserSearchUpdaterB.size(); y++) {
+                        int x1S = allUserSearchUpdaterB.get(y).getSystemNo();
+                        String x2S = allUserSearchUpdaterB.get(y).getUsername();
+                        String x3S = allUserSearchUpdaterB.get(y).getPassword();
+                        String x4S = allUserSearchUpdaterB.get(y).getFirstname();
+                        String x5S = allUserSearchUpdaterB.get(y).getLastname();
+                        int x6S = allUserSearchUpdaterB.get(y).getAge();
+                        String x7S = allUserSearchUpdaterB.get(y).getGender();
+                        Date x8S = allUserSearchUpdaterB.get(y).getStartDate();
+                        String x9S = allUserSearchUpdaterB.get(y).getPhone();
+                        String x10S = allUserSearchUpdaterB.get(y).getEmail();
+                        Personnel pB = new Personnel(x1S, x2S, x3S, x4S, x5S, x6S, x7S, x8S, x9S, x10S);
+                        Main.perToUpdate = pB;
+                        // OUTPUT = Personnel pB [Personnel Object]
+                    }
+
                 }
-                rowDataA[PerDatCol] = iRowPer;  //Row number
-                ArrayList<Personnel> thisPersonnel = DataIO.allPersonnel;
-
-                int x1 = thisPersonnel.get(iRowPer).getSystemNo();
-                String x2 = thisPersonnel.get(iRowPer).getUsername();
-                String x3 = thisPersonnel.get(iRowPer).getPassword();
-                String x4 = thisPersonnel.get(iRowPer).getFirstname();
-                String x5 = thisPersonnel.get(iRowPer).getLastname();
-                int x6 = thisPersonnel.get(iRowPer).getAge();
-                String x7 = thisPersonnel.get(iRowPer).getGender();
-                Date x8 = thisPersonnel.get(iRowPer).getStartDate();
-                String x9 = thisPersonnel.get(iRowPer).getPhone();
-                String x10 = thisPersonnel.get(iRowPer).getEmail();
-                Personnel pB = new Personnel(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10);
-                Main.perToUpdate = pB;
-                // OUTPUT = Personnel pB [Personnel Object]
-
+                
             }
         });
         
@@ -269,7 +296,10 @@ public class PersonnelManagePersonnelPage extends JFrame{
                 rowData[6] = DataIO.allUserSearch.get(i).getEmail();
                 perModelA.addRow(rowData);
             }
+            
+            allUserSearchUpdaterB = DataIO.allUserSearch;
             DataIO.allUserSearch = new ArrayList<User>();
+            MouseBool = false;
         } else {
             JOptionPane.showMessageDialog(this, "ERROR, Please fill fields for First name AND Last Name!", "Error Message", JOptionPane.ERROR_MESSAGE);
         }
@@ -282,7 +312,7 @@ public class PersonnelManagePersonnelPage extends JFrame{
         FirstNameTxt.setText("");
         LastNameTxt.setText("");
         addPerRowtoJTable();
-
+        MouseBool = true;
     }
     
     
