@@ -26,10 +26,10 @@ public class CreateVacInventoryPage extends JFrame implements ActionListener {
             try {
                 if (qnt.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(btnSave, "Data Missing");
-                } else if (Integer.parseInt(qnt.getText()) <= 0) {
+                }else if (Integer.parseInt(qnt.getText()) <= 0) {
                     JOptionPane.showMessageDialog(btnSave, "Quantity should be > 0!");                   
                 }                
-                else // Check duplicate
+                else if (Integer.parseInt(qnt.getText()) > 0)// Check duplicate
                 {
                     for (int i = 0; i < size; i++) {
                         VaccineSupply vacSup = VaccineInventoryIO.allVacSupplies
@@ -42,7 +42,7 @@ public class CreateVacInventoryPage extends JFrame implements ActionListener {
                         }
                     }
                 }
-                if (flag) {
+                if (flag && Integer.parseInt(qnt.getText()) > 0) {
                     int id = 10001;
                     if (size > 0) {
                         id = VaccineInventoryIO.allVacSupplies.get(size - 1).getId()+ 1;
@@ -54,9 +54,9 @@ public class CreateVacInventoryPage extends JFrame implements ActionListener {
                     VaccineInventoryIO.write();
                     JOptionPane.showMessageDialog(null, "Data Saved");
                     frame.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(btnSave,
-                            "Record already available");
+                } else if(flag == false){
+                        JOptionPane.showMessageDialog(btnSave,
+                                "Record already available");
                 }
 
             } catch (Exception ex) {
