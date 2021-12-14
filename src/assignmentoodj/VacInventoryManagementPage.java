@@ -67,10 +67,10 @@ public class VacInventoryManagementPage extends JFrame implements
             try {
                 if (q.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(btnUpdAdd, "Data Missing");
-                } else if (Integer.parseInt(q.getText()) < 0) {
+                } else if (Integer.parseInt(q.getText()) <= 0) {
                     JOptionPane.showMessageDialog(btnUpdAdd,
-                            "Quantity cannot be negative !");
-                } else if (Integer.parseInt(q.getText()) >= 0) {
+                            "Quantity should be > 0 !");
+                } else if (Integer.parseInt(q.getText()) > 0) {
                     updateVaccineSupply(Integer.parseInt(q.getText()));
                 }
 

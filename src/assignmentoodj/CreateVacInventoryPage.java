@@ -26,7 +26,10 @@ public class CreateVacInventoryPage extends JFrame implements ActionListener {
             try {
                 if (qnt.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(btnSave, "Data Missing");
-                } else // Check duplicate
+                } else if (Integer.parseInt(qnt.getText()) <= 0) {
+                    JOptionPane.showMessageDialog(btnSave, "Quantity should be > 0!");                   
+                }                
+                else // Check duplicate
                 {
                     for (int i = 0; i < size; i++) {
                         VaccineSupply vacSup = VaccineInventoryIO.allVacSupplies
@@ -40,7 +43,10 @@ public class CreateVacInventoryPage extends JFrame implements ActionListener {
                     }
                 }
                 if (flag) {
-                    int id = 10001 + VaccineInventoryIO.allVacSupplies.size();
+                    int id = 10001;
+                    if (size > 0) {
+                        id = VaccineInventoryIO.allVacSupplies.get(size - 1).getId()+ 1;
+                    }
 
                     VaccineSupply supplyRec = new VaccineSupply(id, centreName,
                             vName, Integer.parseInt(qnt.getText()));
