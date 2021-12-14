@@ -56,7 +56,7 @@ public class GenderReport {
         GenderReport rg1 = new GenderReport("Male", "Vaccinated", 0);
         GenderReport rg2 = new GenderReport("Male", "Unvaccinated", 0);
         GenderReport rg3 = new GenderReport("Female", "Vaccinated", 0);
-        GenderReport rg4 = new GenderReport("Male", "Unvaccinated", 0);
+        GenderReport rg4 = new GenderReport("Female", "Unvaccinated", 0);
         
         allGenderReport.add(rg1);
         allGenderReport.add(rg2);
