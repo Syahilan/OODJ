@@ -6,12 +6,12 @@ Sinopharm
 10002
 CentreA
 Moderna
-100
+250
 
 10004
 CentreB
 Janssen
-8
+100
 
 10005
 CentreD
