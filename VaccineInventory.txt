@@ -1,22 +1,17 @@
 10001
 CentreA
 Sinopharm
-1223
+2223
 
 10002
 CentreA
 Moderna
-200
-
-10003
-CentreA
-Pfizer
-9820
+100
 
 10004
 CentreB
 Janssen
-300
+8
 
 10005
 CentreD
@@ -46,20 +41,25 @@ Sinopharm
 10010
 CentreC
 AstraZeneca
-400
-
-10011
-CentreE
-Sinovac
-9800
+0
 
 10012
 CentreE
 Sputnik
-299800
+279750
 
 10013
 CentreD
 Sinopharm
-399900
+398860
+
+10014
+CentreE
+Moderna
+7
+
+10015
+CentreE
+Pfizer
+10
 
