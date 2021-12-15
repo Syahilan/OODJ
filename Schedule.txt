@@ -9,18 +9,10 @@ Moderna
 20002
 CentreB
 Wed, 01/12/2021
-09:00
-15:00
-Janssen
-200
-
-20003
-CentreC
-Thu, 02/12/2021
 08:00
-18:00
-AstraZeneca
-400
+12:00
+Janssen
+10
 
 20004
 CentreE
@@ -53,4 +45,44 @@ Thu, 16/12/2021
 17:00
 Janssen
 4
+
+20008
+CentreB
+Fri, 24/12/2021
+09:00
+15:00
+Janssen
+2
+
+20009
+CentreD
+Thu, 23/12/2021
+09:00
+17:00
+Sinopharm
+40
+
+20010
+CentreD
+Thu, 30/12/2021
+09:00
+17:00
+Sinopharm
+1000
+
+20011
+CentreE
+Thu, 30/12/2021
+09:00
+17:00
+Sputnik
+50
+
+20012
+CentreE
+Sat, 08/01/2022
+09:00
+17:00
+Moderna
+5
 
