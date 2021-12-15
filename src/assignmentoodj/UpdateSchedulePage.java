@@ -107,6 +107,8 @@ public class UpdateSchedulePage extends JFrame implements ActionListener, Change
                 JOptionPane.showMessageDialog(this, "Record updated ! Click on 'Save' button to update file.");
                 dispose();
             }
+        }else{
+            JOptionPane.showMessageDialog(btnConfirm, "Vaccine not found in Inventory : Cannot Update !");
         }
     }
 
