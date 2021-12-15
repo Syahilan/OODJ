@@ -93,7 +93,11 @@ public class UpdateSchedulePage extends JFrame implements ActionListener, Change
                         + vacName + " Vaccine available at "
                         + cntr + " !");
             } else {
-                vs.setQuantity(quantity);
+                if(origQuantity > quantity){
+                    vs.setQuantity(invQty + (origQuantity - quantity));
+                }else
+                    vs.setQuantity(invQty - (origQuantity - quantity));
+                
                 VaccineSupply.updateVaccineRecord(vs);
                 // Update Centre Schedule
                 // Create and Set schedule object
