@@ -20,17 +20,6 @@ Fri, 03/12/2021
 Janssen
 Vaccinated
 
-50006
-AI162G1562
-Margaret
-Thatcher
-CentreB
-Wed, 01/12/2021
-09:00
-15:00
-Janssen
-Vaccinated
-
 50007
 172631-12-1828
 Gadot
@@ -106,5 +95,16 @@ Thu, 16/12/2021
 09:00
 17:00
 Janssen
+
+
+50014
+100010-01-1010
+Baratheon
+Robert
+CentreD
+Thu, 30/12/2021
+09:00
+17:00
+Sinopharm
 
 
